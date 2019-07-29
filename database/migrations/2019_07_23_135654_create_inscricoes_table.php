@@ -25,7 +25,6 @@ class CreateInscricoesTable extends Migration
             $table->string('sexo');
             $table->string('telefone');
             $table->string('telefoneAlternativo')->nullable();
-
             $table->string('cep');
             $table->string('uf');
             $table->string('cidade');
