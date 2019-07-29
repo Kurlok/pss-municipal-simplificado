@@ -340,7 +340,7 @@
                                     <script>
                                             comboCargos = document.getElementById('cargoSelecionado');
 
-                                        comboCargos.onclick = function(e) {
+                                        comboCargos.onchange = function(e) {
                                             var idCargo = e.target.value;
                                             var url = ('titulos/idCargo').replace('idCargo', idCargo);
                                             console.log(url);
@@ -348,13 +348,14 @@
                                             $.ajax({
                                                 type: 'POST',
                                                 url: url,
+                                                async: false,
                                                 success: function(response) {
                                                     var listaTitulos = JSON.parse(response);
                                                     console.log(listaTitulos);
 
                                                     titulosLabelElement = document.getElementById('titulosLabel');
                                                     empty(titulosLabelElement);
-                                                    titulosLabelElement.innerHTML = "Selecione os títulos que você possui: ";
+                                                    titulosLabelElement.innerHTML = "Selecione os títulos que você possui para o cargo " + comboCargos.options[comboCargos.selectedIndex].innerHTML + ":";
 
 
                                                     parentElement = document.getElementById('titulos');
