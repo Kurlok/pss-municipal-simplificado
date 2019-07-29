@@ -74,6 +74,20 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="dataNascimento" class="col col-form-label">{{ __('Data de Nascimento:*') }}</label>
+
+                            <div class="col">
+                                <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" maxlength="200"  value="{{ old('dataNascimento') }}" min="1944-08-01" required autofocus>
+
+                                @error('dataNascimento')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="cpf" class="col col-form-label ">{{ __('CPF:*') }}</label>
 
                             <div class="col">
