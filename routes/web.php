@@ -14,4 +14,5 @@
 Route::get('/', 'HomeController@index')->name('/');
 Route::post('/titulos/{idCargo}', 'HomeController@getTitulos');
 Route::post('/inscricao', 'InscricaoController@store');
+Route::get('/exportarInscricoes', 'InscricaoController@export');
 

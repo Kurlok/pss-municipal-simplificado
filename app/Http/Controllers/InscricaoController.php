@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inscricao;
+use App\Exports\InscricoesExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class InscricaoController extends Controller
 {
+    public function titulos()
+    {
+        return $this->belongsToMany('App\Titulo', 'inscricoes_titulos', 'fk_inscricoes_id', 'fk_titulo_id');
+
+      //  return $this->hasMany('App\Titulo', 'fk_titulos_id');
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -49,6 +59,8 @@ class InscricaoController extends Controller
         $inscricao->fk_vagas_id = $request->cargoSelecionado;
 
         $inscricao->save();
+
+        
       //  if ($validatedData->fails()){
      //       return redirect()->route('/')->with('mensagemErroInscricao', 'Inscrição falhou. Confira se você preencheu todos os dados corretamente.');
       //  }  
@@ -58,5 +70,8 @@ class InscricaoController extends Controller
 
 
     }
-
+    public function export()
+    {
+        return Excel::download(new InscricoesExport(), 'inscricoes.xlsx');
+    }
 }
