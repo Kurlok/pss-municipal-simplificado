@@ -18,7 +18,6 @@ class CreateInscricoesTitulosTable extends Migration
             $table->unsignedBigInteger('fk_inscricoes_id');
             $table->foreign('fk_titulos_id')->references('id')->on('titulos');
             $table->foreign('fk_inscricoes_id')->references('id')->on('inscricoes')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
