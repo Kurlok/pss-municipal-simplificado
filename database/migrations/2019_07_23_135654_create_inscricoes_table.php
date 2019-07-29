@@ -34,6 +34,7 @@ class CreateInscricoesTable extends Migration
             $table->string('complemento')->nullable();
             $table->unsignedBigInteger('fk_vagas_id');
             $table->foreign('fk_vagas_id')->references('id')->on('vagas');
+            $table->Integer('totalPontosTitulos')->nullable();
 
             $table->timestamps();
         });

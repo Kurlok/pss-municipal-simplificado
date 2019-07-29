@@ -78,6 +78,7 @@
 
                             <div class="col">
                                 <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" maxlength="200"  value="{{ old('dataNascimento') }}" min="1944-08-01" required autofocus>
+                                <small id="dataNascimentoHelp" class="form-text text-muted">A data de nascimento deve ser posterior à 01/08/1944.</small>
 
                                 @error('dataNascimento')
                                     <span class="invalid-feedback" role="alert">
@@ -388,7 +389,7 @@
                                                         var attElementInputName = document.createAttribute("name");
                                                             attElementInputName.value = "titulo" + titulo.id;
                                                         var attElementInputValue = document.createAttribute("value");
-                                                            attElementInputValue.value = titulo.id;
+                                                            attElementInputValue.value = titulo.pontos;
 
                                                         elementInput.setAttributeNode(attElementInputClass);
                                                         elementInput.setAttributeNode(attType);
@@ -408,7 +409,7 @@
                                                             elementLabel.setAttributeNode(attElementLabelFor);
 
                                                         appendElementLabel = appendFormCheck.appendChild(elementLabel);
-                                                        appendElementLabel.innerHTML = titulo.nome + " - " + titulo.pontos + " pontos";
+                                                        appendElementLabel.innerHTML = titulo.nome + " (" + titulo.pontos + " pontos).";
                                                     }
 
                                                 },
