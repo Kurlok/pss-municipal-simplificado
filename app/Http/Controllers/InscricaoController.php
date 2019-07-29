@@ -31,6 +31,7 @@ class InscricaoController extends Controller
 
         $inscricao = new Inscricao;
         $inscricao->nome = $request->nome;
+        $inscricao->dataNascimento = $request->dataNascimento;
         $inscricao->cpf = $request->cpf;
         $inscricao->email = $request->email;
         $inscricao->rg = $request->rg;

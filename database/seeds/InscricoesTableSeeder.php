@@ -13,6 +13,7 @@ class InscricoesTableSeeder extends Seeder
     {
         DB::table('inscricoes')->insert([
             'nome'=> 'Felipe Augusto Barcelos',
+            'dataNascimento' => '1990-02-16',
             'email' => 'felipe.augum@gmail.com',
             'cpf' => '111.111.111-11',
             'rg' => '11111111111',
