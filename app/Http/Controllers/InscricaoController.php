@@ -40,7 +40,7 @@ class InscricaoController extends Controller
             'numero' => 'numeric|required',
             'complemento' => '',
             'dataNascimento'        => 'after_or_equal:8/1/1944',
-            'cargoSelecionado' => 'required'
+            'titulo' => 'required'
         ]);
 
         $inscricao = new Inscricao;
@@ -65,22 +65,29 @@ class InscricaoController extends Controller
 
         //Salvando os títulos na tabela associativa
         $titulo = new Titulo;
-            if ($request->has("titulo1")) {
-                $titulo->id = $request->titulo1;
+        for ($i=0; $i <= 3; $i++){
+           // if ($request->has("titulo[]")) {
+                $titulo->id = $request->input("titulo.$i");
+                
                 Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
-            }
-            if ($request->has("titulo2")) {
-                $titulo->id = $request->titulo2;
-                Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
-            }
-            if ($request->has("titulo3")) {
-                $titulo->id = $request->titulo3;
-                Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
-            }
-            if ($request->has("titulo4")) {
-                $titulo->id = $request->titulo4;
-                Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
-            }
+            //}
+        }
+            // if ($request->has("titulo1")) {
+            //     $titulo->id = $request->titulo1;
+            //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+            // }
+            // if ($request->has("titulo2")) {
+            //     $titulo->id = $request->titulo2;
+            //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+            // }
+            // if ($request->has("titulo3")) {
+            //     $titulo->id = $request->titulo3;
+            //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+            // }
+            // if ($request->has("titulo4")) {
+            //     $titulo->id = $request->titulo4;
+            //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+            // }
 
             //Inscricao::find($inscricao->id)->titulos()->save($titulo);
             $inscricaoTeste = Inscricao::find($inscricao->id)->titulos()->get();

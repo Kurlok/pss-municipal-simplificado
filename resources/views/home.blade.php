@@ -79,7 +79,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class=" alert alert-danger">
-                Houve um erro na sua inscrição, por favor confira todos os dados.
+                Houve um erro na sua inscrição, por favor confira se preencheu todos os dados.
             </div>
         </div>
     </div>
@@ -389,7 +389,6 @@
                                             $.ajax({
                                                 type: 'POST',
                                                 url: url,
-                                                async: false,
                                                 success: function(response) {
                                                     var listaTitulos = JSON.parse(response);
                                                     console.log(listaTitulos);
@@ -427,9 +426,9 @@
                                                         var attType = document.createAttribute("type");
                                                         attType.value = "checkbox";
                                                         var attElementInputID = document.createAttribute("id");
-                                                        attElementInputID.value = "titulo" + $i;
+                                                        attElementInputID.value = "titulo[]";
                                                         var attElementInputName = document.createAttribute("name");
-                                                        attElementInputName.value = "titulo" + $i;
+                                                        attElementInputName.value = "titulo[]";
                                                         var attElementInputValue = document.createAttribute("value");
                                                         attElementInputValue.value = titulo.id;
 
