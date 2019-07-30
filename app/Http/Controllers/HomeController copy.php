@@ -20,10 +20,7 @@ class HomeController extends Controller
             ],
         );
     }
-    public function __construct()
-    {
-    }
-    
+
     public function getTitulos($idCargo)
     {
         // $cargoPssId = DB::table('vagas')->where([
@@ -47,4 +44,3 @@ class HomeController extends Controller
         // exit;
     }
 }
-

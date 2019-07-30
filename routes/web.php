@@ -14,5 +14,13 @@
 Route::get('/', 'HomeController@index')->name('/');
 Route::post('/titulos/{idCargo}', 'HomeController@getTitulos');
 Route::post('/inscricao', 'InscricaoController@store');
-Route::get('/exportarInscricoes', 'InscricaoController@export');
+Route::get('/exportar/inscricoes', 'InscricaoController@export')->middleware('auth');
 
+
+Auth::routes
+(
+['register' => false],
+['password.request' => false]
+);
+
+Route::get('/exportar', 'ExportarController@index')->name('exportar')->middleware('auth');
