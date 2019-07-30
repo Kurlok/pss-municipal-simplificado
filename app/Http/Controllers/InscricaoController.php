@@ -38,7 +38,7 @@ class InscricaoController extends Controller
             'numero' => 'numeric|required',
             'complemento' => '',
             'dataNascimento'        => 'after_or_equal:8/1/1944',
-
+            'cargoSelecionado' => 'required'
         ]);
 
         $inscricao = new Inscricao;
@@ -61,8 +61,8 @@ class InscricaoController extends Controller
         $inscricao->fk_vagas_id = $request->cargoSelecionado;
         $inscricao->save();
 
-        $titulo = new Titulo;
         //Salvando os títulos na tabela associativa
+        $titulo = new Titulo;
             if ($request->has("titulo1")) {
                 $titulo->id = $request->titulo1;
                 Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
