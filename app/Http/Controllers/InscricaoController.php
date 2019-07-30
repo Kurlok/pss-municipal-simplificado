@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inscricao;
+use App\Titulo;
 
 use App\Exports\InscricoesExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -15,7 +16,7 @@ class InscricaoController extends Controller
     {
         return $this->belongsToMany('App\Titulo', 'inscricoes_titulos', 'fk_inscricoes_id', 'fk_titulo_id');
 
-      //  return $this->hasMany('App\Titulo', 'fk_titulos_id');
+        //  return $this->hasMany('App\Titulo', 'fk_titulos_id');
     }
 
     public function store(Request $request)
@@ -37,7 +38,7 @@ class InscricaoController extends Controller
             'numero' => 'numeric|required',
             'complemento' => '',
             'dataNascimento'        => 'after_or_equal:8/1/1944',
-            
+
         ]);
 
         $inscricao = new Inscricao;
@@ -58,16 +59,32 @@ class InscricaoController extends Controller
         $inscricao->numero = $request->numero;
         $inscricao->complemento = $request->complemento;
         $inscricao->fk_vagas_id = $request->cargoSelecionado;
-
         $inscricao->save();
 
-        
-      //  if ($validatedData->fails()){
-     //       return redirect()->route('/')->with('mensagemErroInscricao', 'Inscrição falhou. Confira se você preencheu todos os dados corretamente.');
-      //  }  
-      //  else {
-            return redirect()->route('/')->with('mensagemSucessoInscricao', 'Inscrição feita com sucesso!');
-     //   }
+        $titulo = new Titulo;
+        //Salvando os títulos na tabela associativa
+            if ($request->has("titulo1")) {
+                $titulo->id = $request->titulo1;
+                Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+            }
+            if ($request->has("titulo2")) {
+                $titulo->id = $request->titulo2;
+                Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+            }
+            if ($request->has("titulo3")) {
+                $titulo->id = $request->titulo3;
+                Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+            }
+            if ($request->has("titulo4")) {
+                $titulo->id = $request->titulo4;
+                Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+            }
+
+            //Inscricao::find($inscricao->id)->titulos()->save($titulo);
+            $inscricaoTeste = Inscricao::find($inscricao->id)->titulos()->get();
+
+        return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição feita com sucesso!");
+        //   }
 
 
     }
