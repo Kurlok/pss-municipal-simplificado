@@ -3,6 +3,9 @@
 namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
 class InscricaoTituloExport implements FromCollection
 {
@@ -12,11 +15,8 @@ class InscricaoTituloExport implements FromCollection
     public function collection()
     {
         return DB::table('inscricoes')
-        ->select(DB::raw('inscricoes.id, inscricoes.nome, inscricoes.dataNascimento, vagas.emprego, SUM(titulos.pontos)'))
         ->join('inscricoes_titulos', 'inscricoes.id', '=', 'inscricoes_titulos.fk_inscricoes_id')
         ->join('titulos', 'titulos.id', '=', 'inscricoes_titulos.fk_titulos_id')
-        ->join('vagas', 'vagas.id', '=', 'inscricoes.fk_vagas_id')
-        ->groupBy('inscricoes.id', 'inscricoes.nome', 'inscricoes.dataNascimento', 'vagas.emprego')
         ->get();
         }
 }

@@ -7,6 +7,8 @@ use App\Inscricao;
 use App\Titulo;
 
 use App\Exports\InscricoesExport;
+use App\Exports\InscricaoTituloExport;
+
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -88,8 +90,12 @@ class InscricaoController extends Controller
 
 
     }
-    public function export()
+    public function exportarInscricoes()
     {
         return Excel::download(new InscricoesExport(), 'inscricoes.xlsx');
+    }
+    public function exportarInscricoesTitulos()
+    {
+        return Excel::download(new InscricaoTituloExport(), 'inscricoesTitulos.xlsx');
     }
 }

@@ -14,8 +14,10 @@
 Route::get('/', 'HomeController@index')->name('/');
 Route::post('/titulos/{idCargo}', 'HomeController@getTitulos');
 Route::post('/inscricao', 'InscricaoController@store');
-Route::get('/exportar/inscricoes', 'InscricaoController@export')->middleware('auth');
 
+Route::get('/exportar', 'ExportarController@index')->name('exportar')->middleware('auth');
+Route::get('/exportar/inscricoes', 'InscricaoController@exportarInscricoes')->name('exportarInscricoes')->middleware('auth');
+Route::get('/exportar/inscricoesTitulos', 'InscricaoController@exportarInscricoesTitulos')->name('exportarInscricoesTitulos')->middleware('auth');
 
 Auth::routes
 (
@@ -23,4 +25,3 @@ Auth::routes
 ['password.request' => false]
 );
 
-Route::get('/exportar', 'ExportarController@index')->name('exportar')->middleware('auth');
