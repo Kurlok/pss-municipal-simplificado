@@ -11,6 +11,8 @@
         $('#cep').mask('00000-000');
         $('.phone').mask('0000-0000');
         $('.phone_with_ddd').mask('(00) 0000-0000');
+        $('.tel').mask('(00) 00000-0000');
+
         $('.telefone').mask('(00) 00000-0000');
         $('.telefoneAlternativo').mask('(00) 00000-0000');
 

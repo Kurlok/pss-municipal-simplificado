@@ -26,7 +26,7 @@ class InscricaoController extends Controller
         $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'cpf' => 'required|string|min:14|max:14',
+            'cpf' => 'required|string|min:14|max:14|cpf',
             'rg' => 'required',
             'ufRg' => 'required',
             'orgaoExpedidor' => 'required',
