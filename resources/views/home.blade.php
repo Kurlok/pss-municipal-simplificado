@@ -164,7 +164,7 @@
                         <div class="form-group">
                             <label for="ufRg" class="col col-form-label ">{{ __('UF - RG:*') }}</label>
                             <div class="col">
-                                <select class="form-control @error('ufRg') is-invalid @enderror" id="ufRg" name="ufRg">
+                                <select class="form-control @error('ufRg') is-invalid @enderror" id="ufRg" required name="ufRg">
                                     <option disabled selected>Selecione o estado</option>
                                     <option value="AC">Acre - AC</option>
                                     <option value="AL">Alagoas - AL</option>
@@ -276,7 +276,7 @@
                         <div class="form-group">
                             <label for="uf" class="col col-form-label ">{{ __('UF:*') }}</label>
                             <div class="col">
-                                <select class="form-control @error('uf') is-invalid @enderror" id="uf" name="uf">
+                                <select class="form-control @error('uf') is-invalid @enderror" required id="uf" name="uf">
                                     <option disabled selected>Selecione o estado</option>
                                     <option value="AC">Acre - AC</option>
                                     <option value="AL">Alagoas - AL</option>
@@ -378,7 +378,7 @@
                         <div class="form-group">
                             <label for="emprego" class="col col-form-label ">{{ __('Emprego:* ') }}</label>
                             <div class="col">
-                                <select class="form-control @error('emprego') is-invalid @enderror" id="emprego" name="emprego">
+                                <select class="form-control @error('emprego') is-invalid @enderror" required id="emprego" name="emprego">
                                     <option disabled selected>Selecione o emprego</option>
                                     @foreach ($listaVagas as $vagas)
                                     <option value="{{$vagas->id}}">{{$vagas->emprego}}</option>
