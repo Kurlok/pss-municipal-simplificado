@@ -32,7 +32,7 @@ class InscricaoController extends Controller
             'orgaoExpedidor' => 'required',
             'sexo' => 'required',
             'telefone' => 'numeric|required',
-            'telefoneAlternativo' => 'numeric',
+            'telefoneAlternativo' => '',
             'cep' => 'required|min:9|max:9',
             'uf' => 'required',
             'cidade' => 'required',
@@ -41,6 +41,9 @@ class InscricaoController extends Controller
             'complemento' => '',
             'emprego' => 'required',
             'dataNascimento' => 'after_or_equal:8/1/1944',
+            'g-recaptcha-response' => 'required|recaptcha',
+            'titulo' => 'required',
+
         ]);
 
         $inscricao = new Inscricao;
@@ -60,7 +63,7 @@ class InscricaoController extends Controller
         $inscricao->rua = $request->rua;
         $inscricao->numero = $request->numero;
         $inscricao->complemento = $request->complemento;
-        $inscricao->fk_vagas_id = $request->cargoSelecionado;
+        $inscricao->fk_vagas_id = $request->emprego;
         $inscricao->save();
 
         //Salvando os títulos na tabela associativa
@@ -90,7 +93,7 @@ class InscricaoController extends Controller
             // }
 
             //Inscricao::find($inscricao->id)->titulos()->save($titulo);
-            $inscricaoTeste = Inscricao::find($inscricao->id)->titulos()->get();
+           // $inscricaoTeste = Inscricao::find($inscricao->id)->titulos()->get();
 
         return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição feita com sucesso!");
         //   }

@@ -97,6 +97,7 @@
                 <div class="card-body">
 
                     <p class="text-justify">Preencha os dados abaixo para realizar a sua inscrição no Processo Seletivo Simplificado nº 01/2009:</p>
+                    <span class="text-justify small">*</span> <span class="text-justify text-danger small">Campos Obrigatórios</span>
                     <form method="POST" action="inscricao" class="">
                         <!--Implementar a rota correta -->
                         {{csrf_field()}}
@@ -146,7 +147,7 @@
                         <div class="form-group">
                             <label for="rg" class="col col-form-label ">{{ __('RG:*') }}</label>
                             <div class="col">
-                                <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="15" required autocomplete="rg" autofocus>
+                                <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="13" required autocomplete="rg" autofocus>
                                 <small id="rgHelp" class="form-text text-muted">Digite sem espaços ou pontuações.</small>
                                 @error('rg')
                                 <span class="invalid-feedback" role="alert">
@@ -359,7 +360,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="col col-form-label ">{{ __('Email:*') }}</label>
+                            <label for="email" class="col col-form-label ">{{ __('E-mail:*') }}</label>
                             <div class="col">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')
@@ -402,7 +403,7 @@
 
                                                     titulosLabelElement = document.getElementById('titulosLabel');
                                                     empty(titulosLabelElement);
-                                                    titulosLabelElement.innerHTML = "Selecione os títulos que você possui para o cargo " + comboCargos.options[comboCargos.selectedIndex].innerHTML + ":";
+                                                    titulosLabelElement.innerHTML = "Selecione os títulos que você possui para o emprego " + comboCargos.options[comboCargos.selectedIndex].innerHTML + ":";
 
 
                                                     parentElement = document.getElementById('titulos');
@@ -508,6 +509,11 @@
                                 </div>
                             </div> -->
                         </div>
+                        <div id="recaptcha" class="form-group row justify-content-center">
+
+                        {!! Recaptcha::render() !!}
+
+                         </div>
 
                         <div class="form-group mb-0">
                             <div class="col">
@@ -519,6 +525,7 @@
                     </form>
 
                 </div>
+
             </div>
         </div>
     </div>
