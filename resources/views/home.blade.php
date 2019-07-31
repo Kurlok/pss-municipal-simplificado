@@ -151,7 +151,7 @@
                         <div class="form-group">
                             <label for="rg" class="col col-form-label ">{{ __('RG:*') }}</label>
                             <div class="col">
-                                <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="13" required autocomplete="rg" autofocus>
+                                <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="12" required autofocus>
                                 <small id="rgHelp" class="form-text text-muted">Digite sem espaços ou pontuações.</small>
                                 @error('rg')
                                 <span class="invalid-feedback" role="alert">
