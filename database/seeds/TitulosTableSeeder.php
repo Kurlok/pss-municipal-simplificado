@@ -15,22 +15,22 @@ class TitulosTableSeeder extends Seeder
         $idVaga = 1;
         for ( $i=0; $i<36; $i++){
             DB::table('titulos')->insert([
-                'nome' => 'Ensino médio completo',
+                'titulo' => 'Ensino médio completo',
                 'pontos' => '20',
                 'fk_vagas_id' => $idVaga
             ]);
             DB::table('titulos')->insert([
-                'nome' => 'Carteira de Habilitação B',
+                'titulo' => 'Carteira de Habilitação B',
                 'pontos' => '20',
                 'fk_vagas_id' => $idVaga
             ]);
             DB::table('titulos')->insert([
-                'nome' => 'Curso Superior (em qualquer área) registrado no MEC',
+                'titulo' => 'Curso Superior (em qualquer área) registrado no MEC',
                 'pontos' => '40',
                 'fk_vagas_id' => $idVaga
             ]);
             DB::table('titulos')->insert([
-                'nome' => 'Pós graduação (em qualquer área)',
+                'titulo' => 'Pós graduação (em qualquer área)',
                 'pontos' => '20',
                 'fk_vagas_id' => $idVaga
             ]);
@@ -39,22 +39,22 @@ class TitulosTableSeeder extends Seeder
 
         //Motorista II
         DB::table('titulos')->insert([
-            'nome' => 'Ensino médio completo',
+            'titulo' => 'Ensino médio completo',
             'pontos' => '20',
             'fk_vagas_id' => '47'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Carteira de Habilitação D',
+            'titulo' => 'Carteira de Habilitação D',
             'pontos' => '20',
             'fk_vagas_id' => '47'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Curso Superior (em qualquer área) registrado no MEC',
+            'titulo' => 'Curso Superior (em qualquer área) registrado no MEC',
             'pontos' => '40',
             'fk_vagas_id' => '47'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Pós graduação (em qualquer área)',
+            'titulo' => 'Pós graduação (em qualquer área)',
             'pontos' => '20',
             'fk_vagas_id' => '47'
         ]);
@@ -62,64 +62,64 @@ class TitulosTableSeeder extends Seeder
         //Assistente de farmácia e técnicos
         //Assistente de farmácia
         DB::table('titulos')->insert([
-            'nome' => 'Certificado de conclusão de curso para o emprego que concorre',
+            'titulo' => 'Certificado de conclusão de curso para o emprego que concorre',
             'pontos' => '20',
             'fk_vagas_id' => '37'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Carteira de Habilitação B',
+            'titulo' => 'Carteira de Habilitação B',
             'pontos' => '20',
             'fk_vagas_id' => '37'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Curso Superior (em qualquer área) registrado no MEC',
+            'titulo' => 'Curso Superior (em qualquer área) registrado no MEC',
             'pontos' => '40',
             'fk_vagas_id' => '37'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Pós graduação (em qualquer área)',
+            'titulo' => 'Pós graduação (em qualquer área)',
             'pontos' => '20',
             'fk_vagas_id' => '37'
         ]);
         //Técnico em Higiene Dentária
         DB::table('titulos')->insert([
-            'nome' => 'Certificado de conclusão de curso para o emprego que concorre',
+            'titulo' => 'Certificado de conclusão de curso para o emprego que concorre',
             'pontos' => '20',
             'fk_vagas_id' => '50'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Carteira de Habilitação B',
+            'titulo' => 'Carteira de Habilitação B',
             'pontos' => '20',
             'fk_vagas_id' => '50'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Curso Superior (em qualquer área) registrado no MEC',
+            'titulo' => 'Curso Superior (em qualquer área) registrado no MEC',
             'pontos' => '40',
             'fk_vagas_id' => '50'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Pós graduação (em qualquer área)',
+            'titulo' => 'Pós graduação (em qualquer área)',
             'pontos' => '20',
             'fk_vagas_id' => '50'
         ]);
         //Técnico em Enfermagem
         DB::table('titulos')->insert([
-            'nome' => 'Certificado de conclusão de curso para o emprego que concorre',
+            'titulo' => 'Certificado de conclusão de curso para o emprego que concorre',
             'pontos' => '20',
             'fk_vagas_id' => '51'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Carteira de Habilitação B',
+            'titulo' => 'Carteira de Habilitação B',
             'pontos' => '20',
             'fk_vagas_id' => '51'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Curso Superior (em qualquer área) registrado no MEC',
+            'titulo' => 'Curso Superior (em qualquer área) registrado no MEC',
             'pontos' => '40',
             'fk_vagas_id' => '51'
         ]);
         DB::table('titulos')->insert([
-            'nome' => 'Pós graduação (em qualquer área)',
+            'titulo' => 'Pós graduação (em qualquer área)',
             'pontos' => '20',
             'fk_vagas_id' => '51'
         ]);
@@ -127,22 +127,22 @@ class TitulosTableSeeder extends Seeder
         for ( $i=0; $i<12; $i++){
             if ($idVaga != 47 ){
             DB::table('titulos')->insert([
-                'nome' => 'Diploma de Curso Superior registrado no MEC',
+                'titulo' => 'Diploma de Curso Superior registrado no MEC',
                 'pontos' => '20',
                 'fk_vagas_id' => $idVaga
             ]);
             DB::table('titulos')->insert([
-                'nome' => 'Pós-Graduação',
+                'titulo' => 'Pós-Graduação',
                 'pontos' => '20',
                 'fk_vagas_id' => $idVaga
             ]);
             DB::table('titulos')->insert([
-                'nome' => 'Mestrado',
+                'titulo' => 'Mestrado',
                 'pontos' => '40',
                 'fk_vagas_id' => $idVaga
             ]);
             DB::table('titulos')->insert([
-                'nome' => 'Carteira Nacional de Habilitação',
+                'titulo' => 'Carteira Nacional de Habilitação',
                 'pontos' => '20',
                 'fk_vagas_id' => $idVaga
             ]);

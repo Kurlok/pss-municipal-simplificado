@@ -18,7 +18,7 @@ class CreateInscricoesTable extends Migration
 
             $table->string('nome');
             $table->date('dataNascimento');
-            $table->string('email')->nullable();
+            $table->string('email');
             $table->string('cpf');
             $table->string('rg');
             $table->string('ufRg');
@@ -34,8 +34,6 @@ class CreateInscricoesTable extends Migration
             $table->string('complemento')->nullable();
             $table->unsignedBigInteger('fk_vagas_id');
             $table->foreign('fk_vagas_id')->references('id')->on('vagas');
-            $table->Integer('totalPontosTitulos')->nullable();
-
             $table->timestamps();
         });
     }

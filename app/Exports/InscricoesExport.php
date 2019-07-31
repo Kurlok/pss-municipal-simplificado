@@ -16,11 +16,67 @@ class InscricoesExport implements FromCollection, WithHeadings, ShouldAutoSize
     public function collection()
     {
         return DB::table('inscricoes')
-        ->select(DB::raw('inscricoes.id, inscricoes.nome, inscricoes.dataNascimento, vagas.emprego, SUM(titulos.pontos)'))
+        ->select(
+            DB::raw('
+            inscricoes.id, 
+            inscricoes.created_at,
+            inscricoes.updated_at,
+            inscricoes.nome, 
+            inscricoes.dataNascimento, 
+            inscricoes.cpf, 
+            inscricoes.rg, 
+            inscricoes.ufRg, 
+            inscricoes.orgaoExpedidor, 
+            inscricoes.sexo, 
+            inscricoes.email, 
+            inscricoes.telefone, 
+            inscricoes.telefoneAlternativo, 
+            inscricoes.cep,
+            inscricoes.uf,
+            inscricoes.cidade,
+            inscricoes.rua,
+            inscricoes.numero,
+            inscricoes.complemento,
+            vagas.emprego,
+            vagas.cargaHoraria,
+            vagas.formacao,
+            vagas.vencimento,
+            vagas.numVagas,
+            vagas.pss,
+            SUM(titulos.pontos)'
+            )
+        )
         ->join('inscricoes_titulos', 'inscricoes.id', '=', 'inscricoes_titulos.fk_inscricoes_id')
         ->join('titulos', 'titulos.id', '=', 'inscricoes_titulos.fk_titulos_id')
         ->join('vagas', 'vagas.id', '=', 'inscricoes.fk_vagas_id')
-        ->groupBy('inscricoes.id', 'inscricoes.nome', 'inscricoes.dataNascimento', 'vagas.emprego')
+        ->groupBy(
+            'inscricoes.id', 
+            'inscricoes.created_at', 
+            'inscricoes.updated_at', 
+            'inscricoes.nome',
+            'inscricoes.dataNascimento', 
+            'inscricoes.cpf', 
+            'inscricoes.rg', 
+            'inscricoes.ufRg', 
+            'inscricoes.orgaoExpedidor', 
+            'inscricoes.sexo', 
+            'inscricoes.email', 
+
+            'inscricoes.telefone', 
+            'inscricoes.telefoneAlternativo', 
+            'inscricoes.cep',
+            'inscricoes.uf',
+            'inscricoes.cidade',
+            'inscricoes.rua',
+            'inscricoes.numero',
+            'inscricoes.complemento',
+            'vagas.emprego',
+            'vagas.cargaHoraria',
+            'vagas.formacao',
+            'vagas.vencimento',
+            'vagas.numVagas',
+            'vagas.pss',
+            )
         ->get();
         
 
@@ -31,9 +87,30 @@ class InscricoesExport implements FromCollection, WithHeadings, ShouldAutoSize
     {
         return [
             'Número da inscrição',
+            'Criada em',
+            'Modificada em',
             'Candidato',
             'Data de Nascimento',
+            'CPF',
+            'RG',
+            'UF-RG',
+            'Órgão Expedidor',
+            'Sexo',
+            'E-mail',
+            'Telefone',
+            'Telefone Alternativo',
+            'CEP',
+            'UF',
+            'Cidade',
+            'Rua',
+            'Número',
+            'Complemento',
             'Emprego Público',
+            'Carga Horária',
+            'Formação',
+            'Vencimento',
+            'Vagas',
+            'PSS',
             'Pontuação Total',
         ];
     }

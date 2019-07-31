@@ -15,7 +15,7 @@ class CreateTitulosTable extends Migration
     {
         Schema::create('titulos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome');
+            $table->string('titulo');
             $table->integer('pontos');
             $table->unsignedBigInteger('fk_vagas_id');
             $table->foreign('fk_vagas_id')->references('id')->on('vagas');

@@ -159,7 +159,7 @@
                         <div class="form-group">
                             <label for="ufRg" class="col col-form-label ">{{ __('UF - RG:*') }}</label>
                             <div class="col">
-                                <select class="form-control" id="ufRg" name="ufRg">
+                                <select class="form-control @error('ufRg') is-invalid @enderror" id="ufRg" name="ufRg">
                                     <option disabled selected>Selecione o estado</option>
                                     <option value="AC">Acre - AC</option>
                                     <option value="AL">Alagoas - AL</option>
@@ -270,7 +270,7 @@
                         <div class="form-group">
                             <label for="uf" class="col col-form-label ">{{ __('UF:*') }}</label>
                             <div class="col">
-                                <select class="form-control" id="uf" name="uf">
+                                <select class="form-control @error('uf') is-invalid @enderror" id="uf" name="uf">
                                     <option disabled selected>Selecione o estado</option>
                                     <option value="AC">Acre - AC</option>
                                     <option value="AL">Alagoas - AL</option>
@@ -300,12 +300,13 @@
                                     <option value="SE">Sergipe - SE</option>
                                     <option value="TO">Tocantins - TO</option>
                                 </select>
-                            </div>
                             @error('uf')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                            </div>
+
                         </div>
 
                         <div class="form-group">
@@ -335,7 +336,7 @@
                         <div class="form-group">
                             <label for="numero" class="col col-form-label ">{{ __('Número:*') }}</label>
                             <div class="col">
-                                <input id="numero" type="text" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('numero') }}" maxlength="100" required autocomplete="numero" autofocus>
+                                <input id="numero" type="text" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('numero') }}" maxlength="10" required autocomplete="numero" autofocus>
                                 @error('numero')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -375,9 +376,10 @@
                                     <option disabled selected>Selecione o emprego</option>
                                     @foreach ($listaVagas as $vagas)
                                     <option value="{{$vagas->id}}">{{$vagas->emprego}}</option>
-
                                     @endforeach
-                                    <!--Código para colocar hierarquia no combobox -->
+                                    </select>
+
+                                    <!--Código para puxar os títulos -->
                                     <script>
                                         comboCargos = document.getElementById('cargoSelecionado');
 
@@ -450,7 +452,7 @@
                                                         elementLabel.setAttributeNode(attElementLabelFor);
 
                                                         appendElementLabel = appendFormCheck.appendChild(elementLabel);
-                                                        appendElementLabel.innerHTML = titulo.nome + " (" + titulo.pontos + " pontos).";
+                                                        appendElementLabel.innerHTML = titulo.titulo + " (" + titulo.pontos + " pontos).";
                                                         $i++;
                                                     }
 
@@ -473,7 +475,6 @@
                                         }
                                     </script>
 
-                                </select>
                             </div>
                         </div>
                         <label id="titulosLabel" for="titulos"></label>
