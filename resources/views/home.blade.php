@@ -79,7 +79,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class=" alert alert-danger">
-                Houve um erro na sua inscrição, por favor confira se preencheu todos os dados.
+                Houve um erro na sua inscrição, por favor confira se preencheu todos os dados e se selecionou pelo menos um título para o cargo desejado.
             </div>
         </div>
     </div>
@@ -212,22 +212,23 @@
                         <div class="form-group">
                             <label for="sexo" class="col col-form-label ">{{ __('Sexo:*') }}</label>
                             <div class="col">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" id="sexoMasculino" value="Masculino">
+                                <div class="form-check">
+                                    <input class="form-check-input  @error('sexo') is-invalid @enderror" type="radio" name="sexo" id="sexoMasculino" value="Masculino">
                                     <label class="form-check-label" for="sexoMasculino">Masculino</label>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" id="sexoFeminino" value="Feminino">
+                                <div class="form-check">
+                                    <input class="form-check-input  @error('sexo') is-invalid @enderror" type="radio" name="sexo" id="sexoFeminino" value="Feminino">
                                     <label class="form-check-label" for="sexoFeminino">Feminino</label>
-                                </div>
-                                @error('sexo')
+                                    @error('sexo')
+                                    <br/>
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                                @enderror
+                                 @enderror
+                                </div>
+
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label for="telefone" class="col col-form-label ">{{ __('Telefone:*') }}</label>
                             <div class="col">
@@ -370,18 +371,22 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="cargoSelecionado" class="col col-form-label ">{{ __('Emprego: ') }}</label>
+                            <label for="emprego" class="col col-form-label ">{{ __('Emprego:* ') }}</label>
                             <div class="col">
-                                <select class="form-control" id="cargoSelecionado" name="cargoSelecionado">
+                                <select class="form-control @error('emprego') is-invalid @enderror" id="emprego" name="emprego">
                                     <option disabled selected>Selecione o emprego</option>
                                     @foreach ($listaVagas as $vagas)
                                     <option value="{{$vagas->id}}">{{$vagas->emprego}}</option>
                                     @endforeach
                                     </select>
-
-                                    <!--Código para puxar os títulos -->
+                                    @error('emprego')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror                                   
+                                 <!--Código para puxar os títulos -->
                                     <script>
-                                        comboCargos = document.getElementById('cargoSelecionado');
+                                        comboCargos = document.getElementById('emprego');
 
                                         comboCargos.onchange = function(e) {
                                             var idCargo = e.target.value;

@@ -39,8 +39,8 @@ class InscricaoController extends Controller
             'rua' => 'required',
             'numero' => 'numeric|required',
             'complemento' => '',
+            'emprego' => 'required',
             'dataNascimento' => 'after_or_equal:8/1/1944',
-            'titulo' => 'required'
         ]);
 
         $inscricao = new Inscricao;
