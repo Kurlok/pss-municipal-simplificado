@@ -99,7 +99,7 @@
 
                 <div class="card-body">
 
-                    <p class="text-justify">Preencha os dados abaixo para realizar a sua inscrição no Processo Seletivo Simplificado nº 01/2019:</p>
+                    <p class="text-justify">Realize a sua inscrição no Processo Seletivo Simplificado nº 01/2019 da Prefeitura Municipal de Palmeira preenchendo o formulário abaixo:</p>
                     <span class="text-justify small">*</span> <span class="text-justify text-danger small">Campos Obrigatórios</span>
                     <form method="POST" action="inscricao" class="">
                         <!--Implementar a rota correta -->
