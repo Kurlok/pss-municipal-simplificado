@@ -328,7 +328,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="rua" class="col col-form-label ">{{ __('Rua:*') }}</label>
+                            <label for="rua" class="col col-form-label ">{{ __('Logradouro:*') }}</label>
                             <div class="col">
                                 <input id="rua" type="text" class="form-control @error('rua') is-invalid @enderror" name="rua" value="{{ old('rua') }}" maxlength="100" required autocomplete="rua" autofocus>
                                 @error('rua')
