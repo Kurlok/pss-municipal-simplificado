@@ -15,7 +15,6 @@ class CreateInscricoesTable extends Migration
     {
         Schema::create('inscricoes', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->string('nome');
             $table->date('dataNascimento');
             $table->string('email');

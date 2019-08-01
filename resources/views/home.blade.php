@@ -99,7 +99,7 @@
 
                 <div class="card-body">
 
-                    <p class="text-justify">Preencha os dados abaixo para realizar a sua inscrição no Processo Seletivo Simplificado nº 01/2009:</p>
+                    <p class="text-justify">Preencha os dados abaixo para realizar a sua inscrição no Processo Seletivo Simplificado nº 01/2019:</p>
                     <span class="text-justify small">*</span> <span class="text-justify text-danger small">Campos Obrigatórios</span>
                     <form method="POST" action="inscricao" class="">
                         <!--Implementar a rota correta -->
