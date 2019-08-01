@@ -162,7 +162,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="ufRg" class="col col-form-label ">{{ __('UF - RG:*') }}</label>
+                            <label for="ufRg" class="col col-form-label ">{{ __('RG - UF:*') }}</label>
                             <div class="col">
                                 <select class="form-control @error('ufRg') is-invalid @enderror" id="ufRg" required name="ufRg">
                                     <option disabled selected>Selecione o estado</option>
