@@ -5,10 +5,14 @@ namespace App\Exports;
 use App\Inscricao;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Concerns\WithColumnFormatting;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class InscricoesExport implements FromCollection, WithHeadings, ShouldAutoSize
+class InscricoesExport implements FromCollection, WithHeadings, ShouldAutoSize, WithColumnFormatting
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -112,6 +116,18 @@ class InscricoesExport implements FromCollection, WithHeadings, ShouldAutoSize
             'Vagas',
             'PSS',
             'Pontuação Total',
+        ];
+    }
+
+    public function columnFormats(): array
+    {
+        return [
+            'B' => NumberFormat::FORMAT_DATE_DATETIME,
+            'C' => NumberFormat::FORMAT_DATE_DATETIME,
+
+            
+            'E' => NumberFormat::FORMAT_DATE_DDMMYYYY,
+            'G' => NumberFormat::FORMAT_TEXT
         ];
     }
 }

@@ -10,11 +10,10 @@
         $('.date_time').mask('00/00/0000 00:00:00');
         $('#cep').mask('00000-000');
         $('.phone').mask('0000-0000');
+        $('#rg').mask('000000000000000');
+
         $('.phone_with_ddd').mask('(00) 0000-0000');
         $('.tel').mask('(00) 00000-0000');
-
-        $('.telefone').mask('(00) 00000-0000');
-        $('.telefoneAlternativo').mask('(00) 00000-0000');
 
         $('.phone_us').mask('(000) 000-0000');
         $('.mixed').mask('AAA 000-S0S');
@@ -123,7 +122,7 @@
                             <label for="dataNascimento" class="col col-form-label">{{ __('Data de Nascimento:*') }}</label>
 
                             <div class="col">
-                                <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" maxlength="200" value="{{ old('dataNascimento') }}" min="1944-08-01" required autofocus>
+                                <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" value="{{ old('dataNascimento') }}" min="1944-08-01" max="2010-01-01" required autofocus>
                                 <small id="dataNascimentoHelp" class="form-text text-muted">A data de nascimento deve ser posterior à 01/08/1944.</small>
 
                                 @error('dataNascimento')
@@ -138,7 +137,8 @@
                             <label for="cpf" class="col col-form-label ">{{ __('CPF:*') }}</label>
 
                             <div class="col">
-                                <input id="cpf" type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf') }}" required autocomplete="cpf" autofocus>
+                                <input id="cpf" type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" placeholder="000.000.000-00" value="{{ old('cpf') }}" required autocomplete="cpf" autofocus>
+                                <small id="cpfHelp" class="form-text text-muted">Digite apenas números.</small>
 
                                 @error('cpf')
                                 <span class="invalid-feedback" role="alert">
@@ -151,8 +151,8 @@
                         <div class="form-group">
                             <label for="rg" class="col col-form-label ">{{ __('RG:*') }}</label>
                             <div class="col">
-                                <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="12" required autofocus>
-                                <small id="rgHelp" class="form-text text-muted">Digite sem espaços ou pontuações.</small>
+                                <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="15" required autofocus>
+                                <small id="rgHelp" class="form-text text-muted">Digite apenas números.</small>
                                 @error('rg')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -218,7 +218,7 @@
                             <label for="sexo" class="col col-form-label ">{{ __('Sexo:*') }}</label>
                             <div class="col">
                                 <div class="form-check">
-                                    <input class="form-check-input  @error('sexo') is-invalid @enderror" type="radio" name="sexo" id="sexoMasculino" value="Masculino">
+                                    <input class="form-check-input  @error('sexo') is-invalid @enderror" type="radio" name="sexo" id="sexoMasculino" required value="Masculino">
                                     <label class="form-check-label" for="sexoMasculino">Masculino</label>
                                 </div>
                                 <div class="form-check">
@@ -237,7 +237,7 @@
                         <div class="form-group">
                             <label for="telefone" class="col col-form-label ">{{ __('Telefone:*') }}</label>
                             <div class="col">
-                                <input id="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" required autocomplete="telefone" autofocus>
+                                <input id="telefone" type="text" class="form-control tel @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" placeholder="(00) 00000-0000" required autocomplete="telefone" autofocus>
                                 <small id="telefoneHelp" class="form-text text-muted">Digite apenas números.</small>
                                 @error('telefone')
                                 <span class="invalid-feedback" role="alert">
@@ -250,7 +250,7 @@
                         <div class="form-group">
                             <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Telefone Alternativo:') }}</label>
                             <div class="col">
-                                <input id="telefoneAlternativo" type="text" class="form-control @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" maxlength="20" autocomplete="telefoneAlternativo" autofocus>
+                                <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" autofocus>
                                 <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
                                 @error('telefoneAlternativo')
                                 <span class="invalid-feedback" role="alert">
@@ -263,7 +263,7 @@
                         <div class="form-group">
                             <label for="cep" class="col col-form-label ">{{ __('CEP:*') }}</label>
                             <div class="col">
-                                <input id="cep" type="text" class="form-control @error('cep') is-invalid @enderror" name="cep" value="{{ old('cep') }}" required autocomplete="cep" autofocus>
+                                <input id="cep" type="text" class="form-control @error('cep') is-invalid @enderror" name="cep" value="{{ old('cep') }}" placeholder="00000-000" required autocomplete="cep" autofocus>
                                 <small id="cepHelp" class="form-text text-muted">Digite apenas números.</small>
                                 @error('cep')
                                 <span class="invalid-feedback" role="alert">
