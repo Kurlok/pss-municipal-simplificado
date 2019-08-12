@@ -225,11 +225,11 @@
                                     <input class="form-check-input  @error('sexo') is-invalid @enderror" type="radio" name="sexo" id="sexoFeminino" value="Feminino">
                                     <label class="form-check-label" for="sexoFeminino">Feminino</label>
                                     @error('sexo')
-                                    <br/>
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                 @enderror
+                                    <br />
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -306,11 +306,11 @@
                                     <option value="SE">Sergipe - SE</option>
                                     <option value="TO">Tocantins - TO</option>
                                 </select>
-                            @error('uf')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                                @error('uf')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
 
                         </div>
@@ -383,107 +383,109 @@
                                     @foreach ($listaVagas as $vagas)
                                     <option value="{{$vagas->id}}">{{$vagas->emprego}}</option>
                                     @endforeach
-                                    </select>
-                                    @error('emprego')
+                                </select>
+                                @error('emprego')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                                @enderror                                   
-                                 <!--Código para puxar os títulos -->
-                                    <script>
-                                        comboCargos = document.getElementById('emprego');
+                                @enderror
+                                <!--Código para puxar os títulos -->
+                                <script>
+                                    comboCargos = document.getElementById('emprego');
 
-                                        comboCargos.onchange = function(e) {
-                                            var idCargo = e.target.value;
-                                            var url = ('titulos/idCargo').replace('idCargo', idCargo);
-                                            console.log(url);
-                                            //requisição ajax aqui chamando a url
-                                            $.ajax({
-                                                type: 'POST',
-                                                url: url,
-                                                success: function(response) {
-                                                    var listaTitulos = JSON.parse(response);
-                                                    console.log(listaTitulos);
+                                    comboCargos.onchange = function(e) {
+                                        var idCargo = e.target.value;
+                                        var url = ('titulos/idCargo').replace('idCargo', idCargo);
+                                        console.log(url);
+                                        //requisição ajax aqui chamando a url
+                                        $("#LoadMe").show();
 
-                                                    titulosLabelElement = document.getElementById('titulosLabel');
-                                                    empty(titulosLabelElement);
-                                                    titulosLabelElement.innerHTML = "Selecione os títulos que você possui para o emprego " + comboCargos.options[comboCargos.selectedIndex].innerHTML + ":";
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: url,
+                                            success: function(response) {
+                                                var listaTitulos = JSON.parse(response);
+                                                console.log(listaTitulos);
+
+                                                titulosLabelElement = document.getElementById('titulosLabel');
+                                                empty(titulosLabelElement);
+                                                titulosLabelElement.innerHTML = "Selecione os títulos que você possui para o emprego " + comboCargos.options[comboCargos.selectedIndex].innerHTML + ":";
 
 
-                                                    parentElement = document.getElementById('titulos');
-                                                    empty(parentElement);
-                                                    $i = 1;
-                                                    for (let titulo of listaTitulos) {
-                                                        elementFormRow = document.createElement("div");
-                                                        var attFormRowClass = document.createAttribute("class");
-                                                        attFormRowClass.value = "form-group";
-                                                        elementFormRow.setAttributeNode(attFormRowClass);
-                                                        appendElementFormRow = parentElement.appendChild(elementFormRow);
+                                                parentElement = document.getElementById('titulos');
+                                                empty(parentElement);
+                                                $i = 1;
+                                                for (let titulo of listaTitulos) {
+                                                    elementFormRow = document.createElement("div");
+                                                    var attFormRowClass = document.createAttribute("class");
+                                                    attFormRowClass.value = "form-group";
+                                                    elementFormRow.setAttributeNode(attFormRowClass);
+                                                    appendElementFormRow = parentElement.appendChild(elementFormRow);
 
-                                                        elementBootstrapCol = document.createElement("div");
-                                                        var attElementBootstrapColClass = document.createAttribute("class");
-                                                        attElementBootstrapColClass.value = "col";
-                                                        elementBootstrapCol.setAttributeNode(attElementBootstrapColClass);
-                                                        appendElementBootstrapCol = appendElementFormRow.appendChild(elementBootstrapCol);
+                                                    elementBootstrapCol = document.createElement("div");
+                                                    var attElementBootstrapColClass = document.createAttribute("class");
+                                                    attElementBootstrapColClass.value = "col";
+                                                    elementBootstrapCol.setAttributeNode(attElementBootstrapColClass);
+                                                    appendElementBootstrapCol = appendElementFormRow.appendChild(elementBootstrapCol);
 
-                                                        elementFormCheck = document.createElement('div');
-                                                        var attElementFormCheckClass = document.createAttribute("class");
-                                                        attElementFormCheckClass.value = "form-check";
-                                                        elementFormCheck.setAttributeNode(attElementFormCheckClass);
-                                                        appendFormCheck = appendElementBootstrapCol.appendChild(elementFormCheck);
+                                                    elementFormCheck = document.createElement('div');
+                                                    var attElementFormCheckClass = document.createAttribute("class");
+                                                    attElementFormCheckClass.value = "form-check";
+                                                    elementFormCheck.setAttributeNode(attElementFormCheckClass);
+                                                    appendFormCheck = appendElementBootstrapCol.appendChild(elementFormCheck);
 
-                                                        elementInput = document.createElement('input');
-                                                        var attElementInputClass = document.createAttribute("class");
-                                                        attElementInputClass.value = "form-check-input";
-                                                        var attType = document.createAttribute("type");
-                                                        attType.value = "checkbox";
-                                                        var attElementInputID = document.createAttribute("id");
-                                                        attElementInputID.value = "titulo[]";
-                                                        var attElementInputName = document.createAttribute("name");
-                                                        attElementInputName.value = "titulo[]";
-                                                        var attElementInputValue = document.createAttribute("value");
-                                                        attElementInputValue.value = titulo.id;
+                                                    elementInput = document.createElement('input');
+                                                    var attElementInputClass = document.createAttribute("class");
+                                                    attElementInputClass.value = "form-check-input";
+                                                    var attType = document.createAttribute("type");
+                                                    attType.value = "checkbox";
+                                                    var attElementInputID = document.createAttribute("id");
+                                                    attElementInputID.value = "titulo[]";
+                                                    var attElementInputName = document.createAttribute("name");
+                                                    attElementInputName.value = "titulo[]";
+                                                    var attElementInputValue = document.createAttribute("value");
+                                                    attElementInputValue.value = titulo.id;
 
-                                                        elementInput.setAttributeNode(attElementInputClass);
-                                                        elementInput.setAttributeNode(attType);
-                                                        elementInput.setAttributeNode(attElementInputID);
-                                                        elementInput.setAttributeNode(attElementInputName);
-                                                        elementInput.setAttributeNode(attElementInputValue);
+                                                    elementInput.setAttributeNode(attElementInputClass);
+                                                    elementInput.setAttributeNode(attType);
+                                                    elementInput.setAttributeNode(attElementInputID);
+                                                    elementInput.setAttributeNode(attElementInputName);
+                                                    elementInput.setAttributeNode(attElementInputValue);
 
-                                                        appendElementInput = appendFormCheck.appendChild(elementInput);
+                                                    appendElementInput = appendFormCheck.appendChild(elementInput);
 
-                                                        elementLabel = document.createElement('label');
-                                                        var attElementLabelClass = document.createAttribute("class");
-                                                        attElementLabelClass.value = "check-label";
-                                                        var attElementLabelFor = document.createAttribute("for");
-                                                        attElementLabelFor.value = "titulo" + $i;
+                                                    elementLabel = document.createElement('label');
+                                                    var attElementLabelClass = document.createAttribute("class");
+                                                    attElementLabelClass.value = "check-label";
+                                                    var attElementLabelFor = document.createAttribute("for");
+                                                    attElementLabelFor.value = "titulo" + $i;
 
-                                                        elementLabel.setAttributeNode(attElementLabelClass);
-                                                        elementLabel.setAttributeNode(attElementLabelFor);
+                                                    elementLabel.setAttributeNode(attElementLabelClass);
+                                                    elementLabel.setAttributeNode(attElementLabelFor);
 
-                                                        appendElementLabel = appendFormCheck.appendChild(elementLabel);
-                                                        appendElementLabel.innerHTML = titulo.titulo + " (" + titulo.pontos + " pontos).";
-                                                        $i++;
-                                                    }
-
-                                                },
-                                                error: function(response) {
-                                                    console.log(response);
+                                                    appendElementLabel = appendFormCheck.appendChild(elementLabel);
+                                                    appendElementLabel.innerHTML = titulo.titulo + " (" + titulo.pontos + " pontos).";
+                                                    $i++;
                                                 }
-                                            });
-                                        }
 
-                                        function empty(select) {
-                                            select.innerHTML = '';
-                                        }
+                                            },
+                                            error: function(response) {
+                                                console.log(response);
+                                            }
+                                        });
+                                    }
 
-                                        function addOption(id, nome, select) {
-                                            var option = document.createElement('option');
-                                            option.value = id; //ID do cargo
-                                            option.innerHTML = nome; //Nome do cargo
-                                            select.appendChild(option);
-                                        }
-                                    </script>
+                                    function empty(select) {
+                                        select.innerHTML = '';
+                                    }
+
+                                    function addOption(id, nome, select) {
+                                        var option = document.createElement('option');
+                                        option.value = id; //ID do cargo
+                                        option.innerHTML = nome; //Nome do cargo
+                                        select.appendChild(option);
+                                    }
+                                </script>
 
                             </div>
                         </div>
@@ -515,9 +517,9 @@
                         </div>
                         <div id="recaptcha" class="form-group row justify-content-center">
 
-                        {!! Recaptcha::render() !!}
+                            {!! Recaptcha::render() !!}
 
-                         </div>
+                        </div>
 
                         <div class="form-group mb-0">
                             <div class="col">
@@ -527,6 +529,10 @@
                             </div>
                         </div>
                     </form>
+                    <!-- <div id="loading" style="display:none">Your Image</div> -->
+<!-- Modal -->
+
+
 
                 </div>
 
@@ -536,4 +542,23 @@
 </div>
 </div>
 </div>
+<div class="modal" id="loading">
+                    <!-- <div class="loader"></div> -->
+
+                    </div>
+
+                    <script>
+                        $(function() {
+                            var loading = $("#loading");
+                            $(document).ajaxStart(function() {
+                                loading.show();
+                            });
+
+                            $(document).ajaxStop(function() {
+                                loading.hide();
+                            });
+
+
+                        });
+                    </script>
 @endsection
