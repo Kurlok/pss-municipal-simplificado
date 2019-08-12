@@ -396,7 +396,7 @@
                                     comboCargos.onchange = function(e) {
                                         var idCargo = e.target.value;
                                         var url = ('titulos/idCargo').replace('idCargo', idCargo);
-                                        console.log(url);
+                                        //console.log(url);
                                         //requisição ajax aqui chamando a url
                                         $("#LoadMe").show();
 
@@ -405,7 +405,7 @@
                                             url: url,
                                             success: function(response) {
                                                 var listaTitulos = JSON.parse(response);
-                                                console.log(listaTitulos);
+                                                //console.log(listaTitulos);
 
                                                 titulosLabelElement = document.getElementById('titulosLabel');
                                                 empty(titulosLabelElement);
