@@ -23,6 +23,43 @@ class InscricaoController extends Controller
         //  return $this->hasMany('App\Titulo', 'fk_titulos_id');
     }
 
+    public function telaConsulta()
+    {
+        return view(
+            'consulta',
+        );
+    }
+
+    public function consultaInscricao(Request $request)
+    {
+        $validatedData = $request->validate([
+            'cpf' => 'required|string|min:14|max:14|cpf',
+            'rg' => 'required|numeric',
+            'dataNascimento' => 'required',
+            'g-recaptcha-response' => 'required|recaptcha',
+        ]);
+
+        $inscricaoBusca = new Inscricao;
+        $inscricaoBusca->id = $request->id;
+        $inscricaoBusca->dataNascimento = $request->dataNascimento;
+        $inscricaoBusca->cpf = $request->cpf;
+        $inscricaoBusca->rg = $request->rg;
+
+        $inscricao =  Inscricao::find($inscricaoBusca->id);
+        if ((isset($inscricao)) && ($inscricaoBusca->dataNascimento == $inscricao->dataNascimento) && ($inscricaoBusca->cpf == $inscricao->cpf) && ($inscricaoBusca->rg == $inscricao->rg)){
+            $emprego = Vaga::find($inscricao->fk_vagas_id);
+
+            return redirect()->route('consulta')->with([
+                'inscricao' => $inscricao,
+                'emprego' => $emprego
+            ]);
+
+        }
+        else {
+            return redirect()->route('consulta')->with('mensagemErroConsulta', "Não foi encontrada nenhuma inscrição com os dados inseridos.");
+        }
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

@@ -19,6 +19,10 @@ Route::get('/exportar', 'ExportarController@index')->name('exportar')->middlewar
 Route::get('/exportar/inscricoes', 'InscricaoController@exportarInscricoes')->name('exportarInscricoes')->middleware('auth');
 Route::get('/exportar/inscricoesTitulos', 'InscricaoController@exportarInscricoesTitulos')->name('exportarInscricoesTitulos')->middleware('auth');
 
+Route::get('/consulta', 'InscricaoController@telaConsulta')->name('consulta');
+Route::post('/consulta/busca', 'InscricaoController@consultaInscricao')->name('consultaInscricao');
+
+
 Auth::routes
 (
 ['register' => false],

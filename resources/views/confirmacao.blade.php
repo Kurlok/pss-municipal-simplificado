@@ -6,7 +6,7 @@
     $dataBR = date('d/m/Y', strtotime($dataSQL));
 ?>
 
-<p>Confirmação de Inscrição no PSS nº 01/2019 da Prefeitura Municipal de Palmeira-PR. Os dados abaixos pertencem a sua inscrição:</p>
+<p>Confirmação de Inscrição no PSS nº 01/2019 da Prefeitura Municipal de Palmeira-PR. Os dados abaixos pertencem a inscrição cadastrada neste e-mail:</p>
 <p>Número da inscrição: {{$inscricao->id}}</p>
 <p>Inscrição efetuada em: {{$dataTempoBR}}</p>
 <p>Nome: {{$inscricao->nome}}</p>
@@ -26,7 +26,8 @@
 <p>Numero: {{$inscricao->numero}}</p>
 <p>Complemento: {{$inscricao->complemento}}</p>
 <p>Emprego: {{$emprego->emprego}} </p>
-<p>Títulos possuídos: </p>
+<p>Títulos selecionados: 
 @foreach($inscricao->titulos as $tit)
-    <p>{{$tit->titulo}} (valor do título: {{$tit->pontos}} pontos).</p>
+    {{$tit->titulo}} (valor do título: {{$tit->pontos}} pontos).
 @endforeach 
+</p>

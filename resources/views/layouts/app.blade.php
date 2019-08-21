@@ -39,7 +39,16 @@
                 <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 16px;">
                     {{ config('app.name', '') }}
                 </a>
+
             </div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Inscrever-se</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('consulta') }}">Consultar</a>
+                </li>
+            </ul>
         </nav>
 
         <main class="py-4">
