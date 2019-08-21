@@ -159,10 +159,19 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             $empregoNome = $empregoBusca->emprego;
             array_push($array, $empregoNome);        
             $somaPontos = 0;  
+            $i = 1;
+
             foreach ($inscricao->titulos as $tit) { 
                 array_push($array, $tit->titulo);
                 array_push($array, $tit->pontos);
                 $somaPontos = $somaPontos + $tit->pontos;
+                $i = $i+1;
+            }
+
+            while ($i <= 5){
+                array_push($array, "");
+                array_push($array, "");
+                $i++;
             }
             array_push($array, $somaPontos);          
 
@@ -206,7 +215,9 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             'Título 4',
             'Pontos Título 4',
             'Título 5',
-            'Pontos Título 5'
+            'Pontos Título 5',
+            'Total de pontos'
+
         ];
     }
 
