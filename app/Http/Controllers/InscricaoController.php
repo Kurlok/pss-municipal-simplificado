@@ -70,45 +70,45 @@ class InscricaoController extends Controller
 
         //Salvando os títulos na tabela associativa
         $titulo = new Titulo;
-        for ($i=0; $i <= 3; $i++){
-           // if ($request->has("titulo[]")) {
-                $titulo->id = $request->input("titulo.$i");
-                
-                Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+        for ($i = 0; $i <= 4; $i++) {
+            // if ($request->has("titulo[]")) {
+            $titulo->id = $request->input("titulo.$i");
+
+            Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
             //}
         }
-            // if ($request->has("titulo1")) {
-            //     $titulo->id = $request->titulo1;
-            //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
-            // }
-            // if ($request->has("titulo2")) {
-            //     $titulo->id = $request->titulo2;
-            //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
-            // }
-            // if ($request->has("titulo3")) {
-            //     $titulo->id = $request->titulo3;
-            //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
-            // }
-            // if ($request->has("titulo4")) {
-            //     $titulo->id = $request->titulo4;
-            //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
-            // }
+        // if ($request->has("titulo1")) {
+        //     $titulo->id = $request->titulo1;
+        //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+        // }
+        // if ($request->has("titulo2")) {
+        //     $titulo->id = $request->titulo2;
+        //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+        // }
+        // if ($request->has("titulo3")) {
+        //     $titulo->id = $request->titulo3;
+        //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+        // }
+        // if ($request->has("titulo4")) {
+        //     $titulo->id = $request->titulo4;
+        //     Inscricao::find($inscricao->id)->titulos()->attach($titulo->id);
+        // }
 
-            //Inscricao::find($inscricao->id)->titulos()->save($titulo);
-           // $inscricaoTeste = Inscricao::find($inscricao->id)->titulos()->get();
-
-           $inscricaoEfetuada = Inscricao::find($inscricao->id);
-
-           $emprego = Vaga::find($inscricaoEfetuada->fk_vagas_id);
-            $to_email = 'felipe.augum@gmail.com';
-           Mail::to($to_email)
-           ->send(new ConfirmacaoInscricao($inscricaoEfetuada, $emprego));
-
-
-        return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição feita com sucesso!");
+        //Inscricao::find($inscricao->id)->titulos()->save($titulo);
+        // $inscricaoTeste = Inscricao::find($inscricao->id)->titulos()->get();
         //   }
 
+        $inscricaoEfetuada = Inscricao::find($inscricao->id);
 
+        $emprego = Vaga::find($inscricaoEfetuada->fk_vagas_id);
+        $destinatario = $inscricaoEfetuada->email;
+        Mail::to($destinatario)
+            ->send(new ConfirmacaoInscricao($inscricaoEfetuada, $emprego));
+        $dataTempoSQL = $inscricao->created_at;
+        $dataTempoBR = date('d/m/Y H:i:s', strtotime($dataTempoSQL));
+
+        
+        return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id.");
     }
     public function exportarInscricoes()
     {
