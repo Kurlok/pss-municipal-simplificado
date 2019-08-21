@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Inscricao;
 use App\Titulo;
+use App\Vaga;
 
+use Illuminate\Support\Facades\Mail;
 use App\Exports\InscricoesExport;
 use App\Exports\InscricaoTituloExport;
-
+use App\Mail\ConfirmacaoInscricao;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -94,6 +96,14 @@ class InscricaoController extends Controller
 
             //Inscricao::find($inscricao->id)->titulos()->save($titulo);
            // $inscricaoTeste = Inscricao::find($inscricao->id)->titulos()->get();
+
+           $inscricaoEfetuada = Inscricao::find($inscricao->id);
+
+           $emprego = Vaga::find($inscricaoEfetuada->fk_vagas_id);
+            $to_email = 'felipe.augum@gmail.com';
+           Mail::to($to_email)
+           ->send(new ConfirmacaoInscricao($inscricaoEfetuada, $emprego));
+
 
         return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição feita com sucesso!");
         //   }

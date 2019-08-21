@@ -17,6 +17,57 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
 class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormatting, FromArray
 {
+
+
+
+    public function columnFormats(): array
+    {
+        return [
+            'B' => NumberFormat::FORMAT_DATE_DATETIME,
+            //  'C' => NumberFormat::FORMAT_DATE_DATETIME,
+
+
+            'D' => NumberFormat::FORMAT_DATE_DDMMYYYY,
+            'F' => NumberFormat::FORMAT_TEXT
+        ];
+    }
+
+    public function headings(): array
+    {
+        return [
+            'Número da inscrição',
+            'Criada em',
+            'Candidato',
+            'Data de Nascimento',
+            'CPF',
+            'RG',
+            'RG - UF',
+            'RG - Órgão Expedidor',
+            'Sexo',
+            'E-mail',
+            'Telefone',
+            'Telefone Alternativo',
+            'CEP',
+            'UF',
+            'Cidade',
+            'Logradouro',
+            'Número',
+            'Complemento',
+            'Emprego Público',
+            'Título 1',
+            'Pontos Título 1',
+            'Título 2',
+            'Pontos Título 2',
+            'Título 3',
+            'Pontos Título 3',
+            'Título 4',
+            'Pontos Título 4',
+            'Título 5',
+            'Pontos Título 5',
+            'Total de pontos'
+
+        ];
+    }
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -154,26 +205,26 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             array_push($array, $inscricao->cidade);
             array_push($array, $inscricao->rua);
             array_push($array, $inscricao->numero);
-            array_push($array, $inscricao->complemento); 
+            array_push($array, $inscricao->complemento);
             $empregoBusca = Vaga::find($inscricao->fk_vagas_id);
             $empregoNome = $empregoBusca->emprego;
-            array_push($array, $empregoNome);        
-            $somaPontos = 0;  
+            array_push($array, $empregoNome);
+            $somaPontos = 0;
             $i = 1;
 
-            foreach ($inscricao->titulos as $tit) { 
+            foreach ($inscricao->titulos as $tit) {
                 array_push($array, $tit->titulo);
                 array_push($array, $tit->pontos);
                 $somaPontos = $somaPontos + $tit->pontos;
-                $i = $i+1;
+                $i = $i + 1;
             }
 
-            while ($i <= 5){
+            while ($i <= 5) {
                 array_push($array, "");
                 array_push($array, "");
                 $i++;
             }
-            array_push($array, $somaPontos);          
+            array_push($array, $somaPontos);
 
             array_push($arrayFinal, $array);
         }
@@ -184,52 +235,5 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
     }
 
 
-    public function headings(): array
-    {
-        return [
-            'Número da inscrição',
-            'Criada em',
-            'Candidato',
-            'Data de Nascimento',
-            'CPF',
-            'RG',
-            'RG - UF',
-            'RG - Órgão Expedidor',
-            'Sexo',
-            'E-mail',
-            'Telefone',
-            'Telefone Alternativo',
-            'CEP',
-            'UF',
-            'Cidade',
-            'Logradouro',
-            'Número',
-            'Complemento',
-            'Emprego Público',
-            'Título 1',
-            'Pontos Título 1',
-            'Título 2',
-            'Pontos Título 2',
-            'Título 3',
-            'Pontos Título 3',
-            'Título 4',
-            'Pontos Título 4',
-            'Título 5',
-            'Pontos Título 5',
-            'Total de pontos'
 
-        ];
-    }
-
-    public function columnFormats(): array
-    {
-        return [
-            // 'B' => NumberFormat::FORMAT_DATE_DATETIME,
-            //  'C' => NumberFormat::FORMAT_DATE_DATETIME,
-
-
-            //'E' => NumberFormat::FORMAT_DATE_DDMMYYYY,
-            //  'G' => NumberFormat::FORMAT_TEXT
-        ];
-    }
 }
