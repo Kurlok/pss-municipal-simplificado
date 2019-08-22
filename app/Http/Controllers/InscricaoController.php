@@ -46,16 +46,14 @@ class InscricaoController extends Controller
         $inscricaoBusca->rg = $request->rg;
 
         $inscricao =  Inscricao::find($inscricaoBusca->id);
-        if ((isset($inscricao)) && ($inscricaoBusca->dataNascimento == $inscricao->dataNascimento) && ($inscricaoBusca->cpf == $inscricao->cpf) && ($inscricaoBusca->rg == $inscricao->rg)){
+        if ((isset($inscricao)) && ($inscricaoBusca->dataNascimento == $inscricao->dataNascimento) && ($inscricaoBusca->cpf == $inscricao->cpf) && ($inscricaoBusca->rg == $inscricao->rg)) {
             $emprego = Vaga::find($inscricao->fk_vagas_id);
 
             return redirect()->route('consulta')->with([
                 'inscricao' => $inscricao,
                 'emprego' => $emprego
             ]);
-
-        }
-        else {
+        } else {
             return redirect()->route('consulta')->with('mensagemErroConsulta', "Não foi encontrada nenhuma inscrição com os dados inseridos.");
         }
     }
@@ -102,6 +100,9 @@ class InscricaoController extends Controller
         $inscricao->rua = $request->rua;
         $inscricao->numero = $request->numero;
         $inscricao->complemento = $request->complemento;
+        $inscricao->deficiencia = $request->deficiencia;
+        $inscricao->deficienciaDescricao = $request->deficienciaDescricao;
+
         $inscricao->fk_vagas_id = $request->emprego;
         $inscricao->save();
 
@@ -135,18 +136,21 @@ class InscricaoController extends Controller
         // $inscricaoTeste = Inscricao::find($inscricao->id)->titulos()->get();
         //   }
 
+        //Envio de e-mail
         $inscricaoEfetuada = Inscricao::find($inscricao->id);
-
         $emprego = Vaga::find($inscricaoEfetuada->fk_vagas_id);
-        $destinatario = $inscricaoEfetuada->email;
-        Mail::to($destinatario)
-            ->send(new ConfirmacaoInscricao($inscricaoEfetuada, $emprego));
         $dataTempoSQL = $inscricao->created_at;
         $dataTempoBR = date('d/m/Y H:i:s', strtotime($dataTempoSQL));
-
-        
-        return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id.");
+        try {
+            $destinatario = $inscricaoEfetuada->email;
+            Mail::to($destinatario)
+                ->send(new ConfirmacaoInscricao($inscricaoEfetuada, $emprego));
+            return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Você pode conferir sua inscrição em 'Consultar' no canto superior direito da tela.");
+        } catch (Exception $ex) {
+            return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Você pode conferir sua inscrição em 'Consultar' no canto superior direito da tela.");
+        }
     }
+
     public function exportarInscricoes()
     {
         return Excel::download(new InscricoesExport(), 'inscricoes.xlsx');

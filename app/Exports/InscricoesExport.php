@@ -53,6 +53,8 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             'Logradouro',
             'Número',
             'Complemento',
+            'Deficiência',
+            'Descrição da deficiência',
             'Emprego Público',
             'Título 1',
             'Pontos Título 1',
@@ -184,7 +186,6 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
     {
         $arrayFinal = array();
         $listaInscricao = Inscricao::all();
-        $listaVagas = Vaga::all();
 
         foreach ($listaInscricao as $inscricao) {
             $array = array();
@@ -206,6 +207,9 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             array_push($array, $inscricao->rua);
             array_push($array, $inscricao->numero);
             array_push($array, $inscricao->complemento);
+            array_push($array, $inscricao->deficiencia);
+            array_push($array, $inscricao->deficienciaDescricao);
+
             $empregoBusca = Vaga::find($inscricao->fk_vagas_id);
             $empregoNome = $empregoBusca->emprego;
             array_push($array, $empregoNome);

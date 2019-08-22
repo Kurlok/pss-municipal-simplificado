@@ -25,9 +25,10 @@
 <p>Rua: {{$inscricao->rua}}</p>
 <p>Numero: {{$inscricao->numero}}</p>
 <p>Complemento: {{$inscricao->complemento}}</p>
+<p>Possui deficiência: {{$inscricao->deficiencia}}. {{$inscricao->deficienciaDescricao}}</p>
 <p>Emprego: {{$emprego->emprego}} </p>
 <p>Títulos selecionados: 
 @foreach($inscricao->titulos as $tit)
-    {{$tit->titulo}} (valor do título: {{$tit->pontos}} pontos).
+    {{$tit->titulo}} (valor: {{$tit->pontos}} pontos).
 @endforeach 
 </p>

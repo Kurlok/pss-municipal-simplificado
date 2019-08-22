@@ -101,10 +101,11 @@
                 <p>Rua: {{$inscricaoMostra->rua}}</p>
                 <p>Numero: {{$inscricaoMostra->numero}}</p>
                 <p>Complemento: {{$inscricaoMostra->complemento}}</p>
+                <p>Possui deficiência: {{$inscricaoMostra->deficiencia}}. {{$inscricaoMostra->deficienciaDescricao}}</p>
                 <p>Emprego: {{$emprego->emprego}} </p>
                 <p>Títulos selecionados:
                     @foreach($inscricaoMostra->titulos as $tit)
-                    {{$tit->titulo}} (valor do título: {{$tit->pontos}} pontos).
+                    {{$tit->titulo}} (valor: {{$tit->pontos}} pontos).
                     @endforeach
                 </p>
                 @endif

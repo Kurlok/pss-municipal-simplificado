@@ -31,6 +31,8 @@ class CreateInscricoesTable extends Migration
             $table->string('rua');
             $table->bigInteger('numero');
             $table->string('complemento')->nullable();
+            $table->string('deficiencia');
+            $table->string('deficienciaDescricao')->nullable();
             $table->unsignedBigInteger('fk_vagas_id');
             $table->foreign('fk_vagas_id')->references('id')->on('vagas');
             $table->timestamps();

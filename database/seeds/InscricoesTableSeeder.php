@@ -28,6 +28,9 @@ class InscricoesTableSeeder extends Seeder
             'cidade' => 'Palmeira',
             'rua' => 'Jesuino',
             'numero' => '1221',
+            'deficiencia' => 'Auditiva',
+            'deficienciaDescricao' => 'Não escuto nada.',
+
             'fk_vagas_id' => '1',
 
             ]);

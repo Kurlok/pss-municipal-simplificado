@@ -374,6 +374,43 @@
                                 @enderror
                             </div>
                         </div>
+                        <label for="deficiencia" class="col col-form-label ">{{ __('Possui alguma deficiência?*') }}</label>
+
+                        <div class="form-group">
+
+                            <div class="col">
+                                <select class="form-control @error('deficiencia') is-invalid @enderror" required id="deficiencia" name="deficiencia">
+                                    <option value="Não" selected>Não</option>
+                                    <option value="Física">Sim, deficiência física</option>
+                                    <option value="Auditiva">Sim, deficiência auditiva</option>
+                                    <option value="Visual">Sim, deficiência visual</option>
+                                    <option value="Mental">Sim, deficiência mental</option>
+                                    <option value="Múltipla">Sim, deficiência múltipla</option>
+                                    <option value="Outra">Sim, outra deficiência</option>
+
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                <input id="deficienciaDescricao" type="text" class="form-control @error('deficienciaDescricao') is-invalid @enderror" name="deficienciaDescricao" value="{{ old('deficienciaDescricao') }}" placeholder="Em caso afirmativo, especifique a deficiência aqui" maxlength="200" disabled>
+                                @error('deficienciaDescricao')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <script type="text/javascript">
+                                $(document).ready(function() {
+                                    $("#deficiencia").change(function() {
+                                        if ($(this).find('option:selected').text() == 'Não') {
+                                            $('#deficienciaDescricao').prop("disabled", true);
+                                        } else {
+                                            $('#deficienciaDescricao').prop("disabled", false);
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
 
                         <div class="form-group">
                             <label for="emprego" class="col col-form-label ">{{ __('Emprego:* ') }}</label>
@@ -530,7 +567,7 @@
                         </div>
                     </form>
                     <!-- <div id="loading" style="display:none">Your Image</div> -->
-<!-- Modal -->
+                    <!-- Modal -->
 
 
 
@@ -543,22 +580,22 @@
 </div>
 </div>
 <div class="modal" id="loading">
-                    <!-- <div class="loader"></div> -->
+    <!-- <div class="loader"></div> -->
 
-                    </div>
+</div>
 
-                    <script>
-                        $(function() {
-                            var loading = $("#loading");
-                            $(document).ajaxStart(function() {
-                                loading.show();
-                            });
+<script>
+    $(function() {
+        var loading = $("#loading");
+        $(document).ajaxStart(function() {
+            loading.show();
+        });
 
-                            $(document).ajaxStop(function() {
-                                loading.hide();
-                            });
+        $(document).ajaxStop(function() {
+            loading.hide();
+        });
 
 
-                        });
-                    </script>
+    });
+</script>
 @endsection
