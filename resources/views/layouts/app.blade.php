@@ -34,19 +34,22 @@
 <body>
     <div id="app">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-success shadow-sm ">
+        <nav class="navbar navbar-expand-sm navbar-light bg-success shadow-sm ">
             <div class="container">
+                
                 <a class="navbar-brand text-white" href="{{ url('/') }}" style="font-size: 16px;">
+                <img src="{{ asset('img/brasaoPalmeira.png') }}" style="height: 35px; margin-top: -10px; margin-bottom: -10px; margin-left: 0px; margin-right: 15px;">
+
                     {{ config('app.name', '') }}
                 </a>
 
             </div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="{{ url('/') }}">Inscrever-se</a>
+                    <a class="nav-link text-light" href="{{ url('/') }}">Inscrição</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-light" href="{{ route('consulta') }}">Consultar</a>
+                    <a class="nav-link text-light" href="{{ route('consulta') }}">Consulta</a>
                 </li>
             </ul>
         </nav>
