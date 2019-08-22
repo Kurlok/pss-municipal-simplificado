@@ -95,7 +95,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
-                <div class="card-header">Inscrições</div>
+                <div class="card-header bg-primary text-white">Inscrições</div>
 
                 <div class="card-body">
 

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
-                <div class="card-header">Exportar</div>
+                <div class="card-header bg-info text-white">Exportar</div>
                 <div class="card-body">
                     <p class="text-justify">Escolha o que deseja exportar:</p>
                     <a href="{{ route('exportarInscricoes') }}">

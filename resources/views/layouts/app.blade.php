@@ -34,19 +34,19 @@
 <body>
     <div id="app">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-success shadow-sm ">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 16px;">
+                <a class="navbar-brand text-white" href="{{ url('/') }}" style="font-size: 16px;">
                     {{ config('app.name', '') }}
                 </a>
 
             </div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Inscrever-se</a>
+                    <a class="nav-link text-light" href="{{ url('/') }}">Inscrever-se</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('consulta') }}">Consultar</a>
+                <li class="nav-item ">
+                    <a class="nav-link text-light" href="{{ route('consulta') }}">Consultar</a>
                 </li>
             </ul>
         </nav>

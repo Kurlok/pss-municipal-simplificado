@@ -140,7 +140,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
-                <div class="card-header">Consulta</div>
+                <div class="card-header bg-primary text-white">Consulta</div>
 
                 <div class="card-body">
 

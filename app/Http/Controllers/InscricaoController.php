@@ -145,9 +145,9 @@ class InscricaoController extends Controller
             $destinatario = $inscricaoEfetuada->email;
             Mail::to($destinatario)
                 ->send(new ConfirmacaoInscricao($inscricaoEfetuada, $emprego));
-            return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Você pode conferir sua inscrição em 'Consultar' no canto superior direito da tela.");
+            return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Com ele você pode conferir sua inscrição em 'Consultar' no canto superior direito da tela.");
         } catch (Exception $ex) {
-            return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Você pode conferir sua inscrição em 'Consultar' no canto superior direito da tela.");
+            return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Com ele você pode conferir sua inscrição em 'Consultar' no canto superior direito da tela.");
         }
     }
 
