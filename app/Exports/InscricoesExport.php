@@ -186,7 +186,6 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
     {
         $arrayFinal = array();
         $listaInscricao = Inscricao::all();
-
         foreach ($listaInscricao as $inscricao) {
             $array = array();
             array_push($array, $inscricao->id);
@@ -229,7 +228,6 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
                 $i++;
             }
             array_push($array, $somaPontos);
-
             array_push($arrayFinal, $array);
         }
 
