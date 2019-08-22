@@ -477,7 +477,7 @@
                                                     var attType = document.createAttribute("type");
                                                     attType.value = "checkbox";
                                                     var attElementInputID = document.createAttribute("id");
-                                                    attElementInputID.value = "titulo[]";
+                                                    attElementInputID.value = "titulo"+$i;
                                                     var attElementInputName = document.createAttribute("name");
                                                     attElementInputName.value = "titulo[]";
                                                     var attElementInputValue = document.createAttribute("value");
@@ -493,9 +493,9 @@
 
                                                     elementLabel = document.createElement('label');
                                                     var attElementLabelClass = document.createAttribute("class");
-                                                    attElementLabelClass.value = "check-label";
+                                                    attElementLabelClass.value = "form-check-label";
                                                     var attElementLabelFor = document.createAttribute("for");
-                                                    attElementLabelFor.value = "titulo" + $i;
+                                                    attElementLabelFor.value = "titulo"+$i;
 
                                                     elementLabel.setAttributeNode(attElementLabelClass);
                                                     elementLabel.setAttributeNode(attElementLabelFor);
