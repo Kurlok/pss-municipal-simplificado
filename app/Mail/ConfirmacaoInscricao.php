@@ -26,7 +26,7 @@ class ConfirmacaoInscricao extends Mailable implements ShouldQueue
         $this->inscricao = $inscricao;
         $this->emprego = $emprego;
 
-        return $this->from('felipe.augum@gmail.com')
+        return $this->from('pss@palmeira.pr.gov.br')
         ->subject('Confirmação de Inscrição - PSS nº 01/2019 - Prefeitura Municipal de Palmeira-PR')
         ->view('confirmacao');
     }
