@@ -38,7 +38,7 @@
             <div class="container">
                 
                 <a class="navbar-brand text-white" href="{{ url('/') }}" style="font-size: 16px;">
-                <img src="{{ asset('img/brasaoPalmeira.png') }}" style="height: 35px; margin-top: -10px; margin-bottom: -10px; margin-left: 0px; margin-right: 15px;">
+                <img src="{{ asset('img/brasaoPalmeira.png') }}" style="height: 35px; margin-top: -10px; margin-bottom: -10px; margin-left: 0px; margin-right: 10px;">
 
                     {{ config('app.name', '') }}
                 </a>

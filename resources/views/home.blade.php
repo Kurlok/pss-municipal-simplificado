@@ -122,8 +122,8 @@
                             <label for="dataNascimento" class="col col-form-label">{{ __('Data de Nascimento:*') }}</label>
 
                             <div class="col">
-                                <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" value="{{ old('dataNascimento') }}" min="1944-08-01" max="2010-01-01" required autofocus>
-                                <small id="dataNascimentoHelp" class="form-text text-muted">A data de nascimento deve ser posterior à 01/08/1944.</small>
+                                <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" value="{{ old('dataNascimento') }}" min="1944-09-01" max="2004-01-01" required autofocus>
+                                <small id="dataNascimentoHelp" class="form-text text-muted">A data de nascimento deve ser posterior à 01/09/1944.</small>
 
                                 @error('dataNascimento')
                                 <span class="invalid-feedback" role="alert">

@@ -77,7 +77,7 @@ class InscricaoController extends Controller
             'numero' => 'required',
             'complemento' => '',
             'emprego' => 'required',
-            'dataNascimento' => 'after_or_equal:8/1/1944',
+            'dataNascimento' => 'after_or_equal:9/1/1944',
             'g-recaptcha-response' => 'required|recaptcha',
             'titulo' => 'required',
 
