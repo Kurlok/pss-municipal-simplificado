@@ -19,7 +19,7 @@ class CreateVagasTable extends Migration
             $table->string('pss');
             $table->string('formacao');
             $table->string('cargaHoraria');
-            $table->decimal('vencimento',6,2);
+            $table->decimal('vencimento',7,2);
             $table->integer('numVagas');
             $table->timestamps();
         });
