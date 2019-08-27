@@ -67,69 +67,39 @@
 
 @section('content')
 <div class="container">
-    <!--Mensagem de sucesso na inscrição-->
-    @if(session()->has('inscricao'))
+    <!--Mensagem de sucesso no recurso-->
+    @if(session()->has('recurso'))
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class=" alert alert-success">
                 <?php
-                $inscricaoMostra = session('inscricao');
-                $dataTempoSQL = $inscricaoMostra->created_at;
+                $recursoMostra = session('recurso');
+                $dataTempoSQL = $recursoMostra->created_at;
                 $dataTempoBR = date('d/m/Y H:i:s', strtotime($dataTempoSQL));
-
-                $dataSQL = $inscricaoMostra->dataNascimento;
-                $dataBR = date('d/m/Y', strtotime($dataSQL));
-                $emprego = session('emprego');
                 ?>
-                @if (isset($inscricaoMostra) && isset($emprego))
-                <p>Confirmação de Inscrição no PSS nº 01/2019 da Prefeitura Municipal de Palmeira-PR:</p>
-                <p>Número da inscrição: {{$inscricaoMostra->id}}</p>
+
+                @if (isset($recursoMostra))
+                <p>Confirmação de envio de recurso no PSS nº 01/2019 da Prefeitura Municipal de Palmeira-PR:</p>
+                <p>Número da inscrição: {{$recursoMostra->id}}</p>
                 <p>Inscrição efetuada em: {{$dataTempoBR}}</p>
-                <p>Nome: {{$inscricaoMostra->nome}}</p>
-                <p>Data de nascimento: {{$dataBR}}</p>
-                <p>CPF: {{$inscricaoMostra->cpf}}</p>
-                <p>E-mail: {{$inscricaoMostra->email}}</p>
-                <p>RG: {{$inscricaoMostra->rg}}</p>
-                <p>RG - UF: {{$inscricaoMostra->ufRg}}</p>
-                <p>RG - Orgão Expedidor: {{$inscricaoMostra->orgaoExpedidor}}</p>
-                <p>Sexo: {{$inscricaoMostra->sexo}}</p>
-                <p>Telefone: {{$inscricaoMostra->telefone}}</p>
-                <p>Telefone Alternativo {{$inscricaoMostra->telefoneAlternativo}}</p>
-                <p>CEP: {{$inscricaoMostra->cep}}</p>
-                <p>UF: {{$inscricaoMostra->uf}}</p>
-                <p>Cidade: {{$inscricaoMostra->cidade}}</p>
-                <p>Rua: {{$inscricaoMostra->rua}}</p>
-                <p>Numero: {{$inscricaoMostra->numero}}</p>
-                <p>Complemento: {{$inscricaoMostra->complemento}}</p>
-                <p>Possui deficiência: {{$inscricaoMostra->deficiencia}}. {{$inscricaoMostra->deficienciaDescricao}}</p>
-                <p>Emprego: {{$emprego->emprego}} </p>
-                <p>Títulos selecionados:
-                    @foreach($inscricaoMostra->titulos as $tit)
-                    {{$tit->titulo}} (valor: {{$tit->pontos}} pontos).
-                    @endforeach
-                </p>
+                <p>Nome: {{$recursoMostra->nome}}</p>
+                <p>CPF: {{$recursoMostra->cpf}}</p>
+                <p>E-mail: {{$recursoMostra->email}}</p>
+                <p>RG: {{$recursoMostra->rg}}</p>
+                <p>Telefone: {{$recursoMostra->telefone}}</p>
+                <p>Celular: {{$recursoMostra->telefoneAlternativo}}</p>
+                <p>Emprego: {{$recursoMostra->emprego}} </p>
                 @endif
-
             </div>
         </div>
     </div>
     @endif
 
-    @if (session()->has('mensagemErroConsulta'))
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class=" alert alert-danger">
-                {{session()->get('mensagemErroConsulta')}}
-
-            </div>
-        </div>
-    </div>
-    @endif
     @if ($errors->any())
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class=" alert alert-danger">
-                Houve um erro na sua consulta, por favor confira se preencheu todos os dados corretamente.
+                Houve um erro no envio de seu recurso, por favor confira se preencheu todos os dados corretamente.
             </div>
         </div>
     </div>
@@ -152,9 +122,9 @@
                             <label for="id" class="col col-form-label">{{ __('Número da Inscrição:*') }}</label>
 
                             <div class="col">
-                                <input id="id" type="text" name="id" class="form-control @error('id') is-invalid @enderror" maxlength="10" required>
+                                <input id="idInscricao" type="text" name="idInscricao" class="form-control @error('idInscricao') is-invalid @enderror" maxlength="10" required>
 
-                                @error('id')
+                                @error('idInscricao')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -262,8 +232,8 @@
                         
                         <div class="form-group">
                         <div class="col">
-                            <label for="exampleFormControlTextarea1">Fundamentação do recurso</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                            <label for="fundamentacao">Fundamentação do recurso</label>
+                                <textarea class="form-control" id="fundamentacao" rows="25">{{ old('fundamentacao') }}</textarea>
                             </div>
                         </div>
 

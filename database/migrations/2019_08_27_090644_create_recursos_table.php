@@ -18,17 +18,19 @@ class CreateRecursosTable extends Migration
         //número de inscrição, emprego a que concorre e endereço de e-mail.
         Schema::create('recursos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('fk_inscricoes_id');
-            $table->foreign('fk_inscricoes_id')->references('id')->on('inscricoes')->onDelete('cascade');
+            $table->unsignedBigInteger('numInscricao');
+
+            // $table->unsignedBigInteger('fk_inscricoes_id');
+            // $table->foreign('fk_inscricoes_id')->references('id')->on('inscricoes')->onDelete('cascade');
             $table->mediumText('fundamentacao');
 
-                        // $table->string('nome');
-            // $table->string('emprego');
-            // $table->string('email');
-            // $table->string('rg');
-            // $table->string('cpf');
-            // $table->string('telefoneFixo')->nullable();
-            // $table->string('celular')->nullable();
+            $table->string('nome');
+            $table->string('emprego');
+            $table->string('email');
+            $table->string('rg');
+            $table->string('cpf');
+            $table->string('telefone')->nullable();
+            $table->string('telefoneAlternativo')->nullable();
             $table->timestamps();
         });
 
