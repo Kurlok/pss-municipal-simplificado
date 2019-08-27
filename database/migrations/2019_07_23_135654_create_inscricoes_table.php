@@ -20,11 +20,11 @@ class CreateInscricoesTable extends Migration
             $table->string('email');
             $table->string('cpf');
             $table->string('rg');
-            $table->string('ufRg');
-            $table->string('orgaoExpedidor');
+            // $table->string('ufRg');
+            // $table->string('orgaoExpedidor');
             $table->string('sexo');
             $table->string('telefone');
-            $table->string('telefoneAlternativo')->nullable();
+            $table->string('telefoneAlternativo');
             $table->string('cep');
             $table->string('uf');
             $table->string('cidade');

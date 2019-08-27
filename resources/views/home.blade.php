@@ -160,7 +160,7 @@
                                 @enderror
                             </div>
                         </div>
-
+{{--
                         <div class="form-group">
                             <label for="ufRg" class="col col-form-label ">{{ __('RG - UF:*') }}</label>
                             <div class="col">
@@ -213,7 +213,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                   --}}
                         <div class="form-group">
                             <label for="sexo" class="col col-form-label ">{{ __('Sexo:*') }}</label>
                             <div class="col">
@@ -248,7 +248,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Telefone Alternativo:') }}</label>
+                            <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Celular*:') }}</label>
                             <div class="col">
                                 <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" autofocus>
                                 <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
@@ -328,7 +328,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="rua" class="col col-form-label ">{{ __('Logradouro:*') }}</label>
+                            <label for="rua" class="col col-form-label ">{{ __('Endereço:*') }}</label>
                             <div class="col">
                                 <input id="rua" type="text" class="form-control @error('rua') is-invalid @enderror" name="rua" value="{{ old('rua') }}" maxlength="100" required autocomplete="rua" autofocus>
                                 @error('rua')
@@ -381,13 +381,7 @@
                             <div class="col">
                                 <select class="form-control @error('deficiencia') is-invalid @enderror" required id="deficiencia" name="deficiencia">
                                     <option value="Não" selected>Não</option>
-                                    <option value="Física">Sim, deficiência física</option>
-                                    <option value="Auditiva">Sim, deficiência auditiva</option>
-                                    <option value="Visual">Sim, deficiência visual</option>
-                                    <option value="Mental">Sim, deficiência mental</option>
-                                    <option value="Múltipla">Sim, deficiência múltipla</option>
-                                    <option value="Outra">Sim, outra deficiência</option>
-
+                                    <option value="Sim">Sim</option>
                                 </select>
                             </div>
 

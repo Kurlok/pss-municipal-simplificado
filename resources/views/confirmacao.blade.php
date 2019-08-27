@@ -14,11 +14,9 @@
 <p>CPF: {{$inscricao->cpf}}</p>
 <p>E-mail: {{$inscricao->email}}</p>
 <p>RG: {{$inscricao->rg}}</p>
-<p>RG - UF: {{$inscricao->ufRg}}</p>
-<p>RG - Orgão Expedidor: {{$inscricao->orgaoExpedidor}}</p>
 <p>Sexo: {{$inscricao->sexo}}</p>
 <p>Telefone: {{$inscricao->telefone}}</p>
-<p>Telefone Alternativo {{$inscricao->telefoneAlternativo}}</p>
+<p>Celular: {{$inscricao->telefoneAlternativo}}</p>
 <p>CEP: {{$inscricao->cep}}</p>
 <p>UF: {{$inscricao->uf}}</p>
 <p>Cidade: {{$inscricao->cidade}}</p>

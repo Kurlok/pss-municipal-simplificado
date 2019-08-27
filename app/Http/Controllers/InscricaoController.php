@@ -65,11 +65,11 @@ class InscricaoController extends Controller
             'email' => 'required|string|email|max:255',
             'cpf' => 'required|string|min:14|max:14|cpf',
             'rg' => 'required|numeric',
-            'ufRg' => 'required',
-            'orgaoExpedidor' => 'required',
+            // 'ufRg' => 'required',
+            // 'orgaoExpedidor' => 'required',
             'sexo' => 'required',
             'telefone' => 'required|min:14|max:15',
-            'telefoneAlternativo' => '',
+            'telefoneAlternativo' => 'required|min:15|max:15',
             'cep' => 'required|min:9|max:9',
             'uf' => 'required',
             'cidade' => 'required',
@@ -89,8 +89,8 @@ class InscricaoController extends Controller
         $inscricao->cpf = $request->cpf;
         $inscricao->email = $request->email;
         $inscricao->rg = $request->rg;
-        $inscricao->ufRg = $request->ufRg;
-        $inscricao->orgaoExpedidor = $request->orgaoExpedidor;
+        // $inscricao->ufRg = $request->ufRg;
+        // $inscricao->orgaoExpedidor = $request->orgaoExpedidor;
         $inscricao->sexo = $request->sexo;
         $inscricao->telefone = $request->telefone;
         $inscricao->telefoneAlternativo = $request->telefoneAlternativo;

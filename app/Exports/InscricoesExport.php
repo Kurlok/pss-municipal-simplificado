@@ -41,12 +41,12 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             'Data de Nascimento',
             'CPF',
             'RG',
-            'RG - UF',
-            'RG - Órgão Expedidor',
+            // 'RG - UF',
+            // 'RG - Órgão Expedidor',
             'Sexo',
             'E-mail',
             'Telefone',
-            'Telefone Alternativo',
+            'Celular',
             'CEP',
             'UF',
             'Cidade',
@@ -194,8 +194,8 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             array_push($array, $inscricao->dataNascimento);
             array_push($array, $inscricao->cpf);
             array_push($array, $inscricao->rg);
-            array_push($array, $inscricao->ufRg);
-            array_push($array, $inscricao->orgaoExpedidor);
+            // array_push($array, $inscricao->ufRg);
+            // array_push($array, $inscricao->orgaoExpedidor);
             array_push($array, $inscricao->sexo);
             array_push($array, $inscricao->email);
             array_push($array, $inscricao->telefone);

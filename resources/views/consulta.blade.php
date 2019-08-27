@@ -90,11 +90,9 @@
                 <p>CPF: {{$inscricaoMostra->cpf}}</p>
                 <p>E-mail: {{$inscricaoMostra->email}}</p>
                 <p>RG: {{$inscricaoMostra->rg}}</p>
-                <p>RG - UF: {{$inscricaoMostra->ufRg}}</p>
-                <p>RG - Orgão Expedidor: {{$inscricaoMostra->orgaoExpedidor}}</p>
                 <p>Sexo: {{$inscricaoMostra->sexo}}</p>
                 <p>Telefone: {{$inscricaoMostra->telefone}}</p>
-                <p>Telefone Alternativo {{$inscricaoMostra->telefoneAlternativo}}</p>
+                <p>Celular: {{$inscricaoMostra->telefoneAlternativo}}</p>
                 <p>CEP: {{$inscricaoMostra->cep}}</p>
                 <p>UF: {{$inscricaoMostra->uf}}</p>
                 <p>Cidade: {{$inscricaoMostra->cidade}}</p>
