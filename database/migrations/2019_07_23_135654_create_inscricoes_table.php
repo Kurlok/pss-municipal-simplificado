@@ -28,6 +28,7 @@ class CreateInscricoesTable extends Migration
             $table->string('cep');
             $table->string('uf');
             $table->string('cidade');
+            $table->string('bairro');
             $table->string('rua');
             $table->bigInteger('numero');
             $table->string('complemento')->nullable();

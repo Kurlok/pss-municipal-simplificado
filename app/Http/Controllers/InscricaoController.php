@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Exports\InscricoesExport;
 use App\Exports\InscricaoTituloExport;
 use App\Mail\ConfirmacaoInscricao;
+use App\Rules\PalavrasMinimas;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -61,7 +62,8 @@ class InscricaoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nome' => 'required|string|max:255', 
+            'nome' => ['required', 'string', 'max:255', new PalavrasMinimas],
+            'bairro' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'cpf' => 'required|string|min:14|max:14|cpf',
             'rg' => 'required|numeric',
@@ -82,12 +84,11 @@ class InscricaoController extends Controller
             'titulo' => 'required',
 
         ]);
-        // if (count(explode(' ', $request->nome)) < 2) {
-        //     return redirect()->route('/')->with('erroTamanhoNome', "O nome deve possuir pelo menos 2 palavras.")->withErrors($validatedData);
-        // }
 
         $inscricao = new Inscricao;
         $inscricao->nome = $request->nome;
+        $inscricao->bairro = $request->bairro;
+
         $inscricao->dataNascimento = $request->dataNascimento;
         $inscricao->cpf = $request->cpf;
         $inscricao->email = $request->email;

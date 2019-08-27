@@ -50,7 +50,8 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             'CEP',
             'UF',
             'Cidade',
-            'Logradouro',
+            'Bairro',
+            'Endereço',
             'Número',
             'Complemento',
             'Deficiência',
@@ -203,6 +204,7 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             array_push($array, $inscricao->cep);
             array_push($array, $inscricao->uf);
             array_push($array, $inscricao->cidade);
+            array_push($array, $inscricao->bairro);
             array_push($array, $inscricao->rua);
             array_push($array, $inscricao->numero);
             array_push($array, $inscricao->complemento);

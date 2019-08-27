@@ -96,8 +96,9 @@
                 <p>CEP: {{$inscricaoMostra->cep}}</p>
                 <p>UF: {{$inscricaoMostra->uf}}</p>
                 <p>Cidade: {{$inscricaoMostra->cidade}}</p>
-                <p>Rua: {{$inscricaoMostra->rua}}</p>
-                <p>Numero: {{$inscricaoMostra->numero}}</p>
+                <p>Bairro: {{$inscricaoMostra->bairro}}</p>
+                <p>Endereço: {{$inscricaoMostra->rua}}</p>
+                <p>Número: {{$inscricaoMostra->numero}}</p>
                 <p>Complemento: {{$inscricaoMostra->complemento}}</p>
                 <p>Possui deficiência: {{$inscricaoMostra->deficiencia}}. {{$inscricaoMostra->deficienciaDescricao}}</p>
                 <p>Emprego: {{$emprego->emprego}} </p>

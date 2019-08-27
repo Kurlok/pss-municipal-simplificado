@@ -115,11 +115,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                                @if(session()->has('erroTamanhoNome'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{session()->get('erroTamanhoNome')}}</strong>
-                                </span>
-                                @endif
+
                             </div>
                         </div>
 
@@ -333,6 +329,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="bairro" class="col col-form-label ">{{ __('Bairro:*') }}</label>
+                    <div class="col">
+                        <input id="bairro" type="text" class="form-control @error('bairro') is-invalid @enderror" name="bairro" value="{{ old('bairro') }}" maxlength="100" required autocomplete="bairro" autofocus>
+                        @error('bairro')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="rua" class="col col-form-label ">{{ __('Endereço:*') }}</label>
                     <div class="col">
                         <input id="rua" type="text" class="form-control @error('rua') is-invalid @enderror" name="rua" value="{{ old('rua') }}" maxlength="100" required autocomplete="rua" autofocus>
@@ -405,6 +413,8 @@
                                     $('#deficienciaDescricao').prop("disabled", true);
                                 } else {
                                     $('#deficienciaDescricao').prop("disabled", false);
+                                    $('#deficienciaDescricao').prop("required", true);
+
                                 }
                             });
                         });
@@ -422,7 +432,7 @@
                         </select>
                         @if(null !== old('emprego'))
                         <span class="invalid-feedback" role="alert">
-                            <strong>O campo emprego é obrigatório.</strong>
+                            <strong>O campo emprego é obrigatório e é necessário selecionar pelo menos um título.</strong>
                         </span>
                         @endif
                         @error('emprego')

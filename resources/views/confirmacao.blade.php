@@ -20,8 +20,9 @@
 <p>CEP: {{$inscricao->cep}}</p>
 <p>UF: {{$inscricao->uf}}</p>
 <p>Cidade: {{$inscricao->cidade}}</p>
-<p>Rua: {{$inscricao->rua}}</p>
-<p>Numero: {{$inscricao->numero}}</p>
+<p>Bairro: {{$inscricao->bairro}}</p>
+<p>Endereço: {{$inscricao->rua}}</p>
+<p>Número: {{$inscricao->numero}}</p>
 <p>Complemento: {{$inscricao->complemento}}</p>
 <p>Possui deficiência: {{$inscricao->deficiencia}}. {{$inscricao->deficienciaDescricao}}</p>
 <p>Emprego: {{$emprego->emprego}} </p>
