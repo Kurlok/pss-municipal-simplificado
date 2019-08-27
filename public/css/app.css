@@ -58,3 +58,12 @@ body.loading .modal {
     display: block;
 }
 
+#dataNascimento {
+  -webkit-appearance: none;
+}
+#dataNascimento::-webkit-inner-spin-button,
+#dataNascimento::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+

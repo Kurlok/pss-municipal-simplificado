@@ -61,7 +61,7 @@ class InscricaoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' => 'required|string|max:255', 
             'email' => 'required|string|email|max:255',
             'cpf' => 'required|string|min:14|max:14|cpf',
             'rg' => 'required|numeric',
@@ -82,6 +82,9 @@ class InscricaoController extends Controller
             'titulo' => 'required',
 
         ]);
+        // if (count(explode(' ', $request->nome)) < 2) {
+        //     return redirect()->route('/')->with('erroTamanhoNome', "O nome deve possuir pelo menos 2 palavras.")->withErrors($validatedData);
+        // }
 
         $inscricao = new Inscricao;
         $inscricao->nome = $request->nome;
@@ -148,8 +151,7 @@ class InscricaoController extends Controller
             return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Com ele você pode conferir sua inscrição em 'Consulta' no canto superior direito da tela.");
         } catch (Exception $ex) {
             return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Com ele você pode conferir sua inscrição em 'Consulta' no canto superior direito da tela.");
-        }
-        finally{
+        } finally {
             return redirect()->route('/')->with('mensagemSucessoInscricao', "Inscrição efetuada com sucesso em $dataTempoBR, anote seu número de inscrição: $inscricao->id. Com ele você pode conferir sua inscrição em 'Consulta' no canto superior direito da tela.");
         }
     }
