@@ -22,6 +22,9 @@ Route::get('/exportar/inscricoesTitulos', 'InscricaoController@exportarInscricoe
 Route::get('/consulta', 'InscricaoController@telaConsulta')->name('consulta');
 Route::post('/consulta/busca', 'InscricaoController@consultaInscricao')->name('consultaInscricao');
 
+Route::get('/recurso', 'RecursoController@index')->name('recurso');
+Route::post('/recurso/cadastrar', 'InscricaoController@store');
+
 
 Auth::routes
 (

@@ -114,6 +114,7 @@
         </div>
     </div>
     @endif
+
     @if (session()->has('mensagemErroConsulta'))
     <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -136,15 +137,14 @@
 </div>
 
 <div class="container">
-
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
-                <div class="card-header bg-primary text-white">Consulta</div>
+                <div class="card-header bg-primary text-white">Recurso</div>
 
                 <div class="card-body">
 
-                    <p class="text-justify">Insira os dados abaixo para consultar sua inscrição:</p>
+                    <p class="text-justify">Insira seu número de inscrição, RG e CPF.</p>
                     <span class="text-justify small">*</span> <span class="text-justify text-danger small">Campos Obrigatórios</span>
                     <form method="POST" action="{{ route('consultaInscricao') }}" class="">
                         {{csrf_field()}}
@@ -162,13 +162,14 @@
                             </div>
                         </div>
 
+
                         <div class="form-group">
-                            <label for="dataNascimento" class="col col-form-label">{{ __('Data de Nascimento:*') }}</label>
+                            <label for="nome" class="col col-form-label">{{ __('Nome completo:*') }}</label>
 
                             <div class="col">
-                                <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" value="{{ old('dataNascimento') }}" min="1944-08-01" max="2010-01-01" required>
+                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" maxlength="200" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
 
-                                @error('dataNascimento')
+                                @error('nome')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -204,6 +205,68 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="telefone" class="col col-form-label ">{{ __('Telefone:*') }}</label>
+                            <div class="col">
+                                <input id="telefone" type="text" class="form-control tel @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" placeholder="(00) 00000-0000" required autocomplete="telefone" autofocus>
+                                <small id="telefoneHelp" class="form-text text-muted">Digite apenas números.</small>
+                                @error('telefone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Telefone Alternativo:') }}</label>
+                            <div class="col">
+                                <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" autofocus>
+                                <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
+                                @error('telefoneAlternativo')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col col-form-label ">{{ __('E-mail:*') }}</label>
+                            <div class="col">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emprego" class="col col-form-label ">{{ __('Emprego ao qual concorre:* ') }}</label>
+                            <div class="col">
+                                <select class="form-control @error('emprego') is-invalid @enderror" required id="emprego" name="emprego">
+                                    <option disabled selected>Selecione o emprego</option>
+                                    @foreach ($listaVagas as $vagas)
+                                    <option value="{{$vagas->id}}">{{$vagas->emprego}}</option>
+                                    @endforeach
+                                </select>
+                                @error('emprego')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                        <div class="col">
+                            <label for="exampleFormControlTextarea1">Fundamentação do recurso</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                            </div>
+                        </div>
+
                         <div id="recaptcha" class="form-group row justify-content-center">
 
                             {!! Recaptcha::render() !!}
@@ -213,7 +276,7 @@
                         <div class="form-group mb-0">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Consultar') }}
+                                    {{ __('Enviar') }}
                                 </button>
                             </div>
                         </div>
@@ -250,4 +313,5 @@
 
     });
 </script>
+
 @endsection
