@@ -139,7 +139,7 @@
                             <label for="nome" class="col col-form-label">{{ __('Nome completo:*') }}</label>
 
                             <div class="col">
-                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" maxlength="200" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
+                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" maxlength="200" value="{{ old('nome') }}" required autocomplete="nome" >
 
                                 @error('nome')
                                 <span class="invalid-feedback" role="alert">
@@ -180,7 +180,7 @@
                         <div class="form-group">
                             <label for="telefone" class="col col-form-label ">{{ __('Telefone:*') }}</label>
                             <div class="col">
-                                <input id="telefone" type="text" class="form-control tel @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" placeholder="(00) 00000-0000" required autocomplete="telefone" autofocus>
+                                <input id="telefone" type="text" class="form-control tel @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" placeholder="(00) 00000-0000" required autocomplete="telefone">
                                 <small id="telefoneHelp" class="form-text text-muted">Digite apenas números.</small>
                                 @error('telefone')
                                 <span class="invalid-feedback" role="alert">
@@ -193,7 +193,7 @@
                         <div class="form-group">
                             <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Celular*:') }}</label>
                             <div class="col">
-                                <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" autofocus>
+                                <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo">
                                 <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
                                 @error('telefoneAlternativo')
                                 <span class="invalid-feedback" role="alert">
