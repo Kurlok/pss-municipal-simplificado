@@ -165,7 +165,7 @@
                         <div class="form-group">
                             <label for="ufRg" class="col col-form-label ">{{ __('RG - UF:*') }}</label>
                         <div class="col">
-                            <select class="form-control @error('ufRg') is-invalid @enderror" id="ufRg" required name="ufRg">
+                            <select required class="form-control @error('ufRg') is-invalid @enderror" id="ufRg"  name="ufRg">
                                 <option disabled selected>Selecione o estado</option>
                                 <option value="AC" @if(old('ufRg')=='AC' ) selected @endif>Acre - AC</option>
                                 <option value="AL" @if(old('ufRg')=='AL' ) selected @endif>Alagoas - AL</option>
@@ -251,7 +251,7 @@
                 <div class="form-group">
                     <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Celular*:') }}</label>
                     <div class="col">
-                        <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" autofocus>
+                        <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" required autofocus>
                         <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
                         @error('telefoneAlternativo')
                         <span class="invalid-feedback" role="alert">
@@ -277,7 +277,7 @@
                 <div class="form-group">
                     <label for="uf" class="col col-form-label ">{{ __('UF:*') }}</label>
                     <div class="col">
-                        <select class="form-control @error('uf') is-invalid @enderror" required id="uf" name="uf">
+                        <select required class="form-control @error('uf') is-invalid @enderror" id="uf" name="uf">
                             <option disabled selected>Selecione o estado</option>
                             <option value="AC" @if(old('uf')=='AC' ) selected @endif>Acre - AC</option>
                             <option value="AL" @if(old('uf')=='AL' ) selected @endif>Alagoas - AL</option>
@@ -432,7 +432,7 @@
                         </select>
                         @if(null !== old('emprego'))
                         <span class="invalid-feedback" role="alert">
-                            <strong>O campo emprego é obrigatório e é necessário selecionar pelo menos um título.</strong>
+                            <strong>O campo Emprego é obrigatório e é necessário selecionar pelo menos um título.</strong>
                         </span>
                         @endif
                         @error('emprego')

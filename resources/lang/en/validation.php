@@ -145,6 +145,31 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'idInscricao' => 'Número da inscrição',
+        'email' => 'E-mail',
+        'nome' => 'Nome completo',
+        'bairro' => 'Bairro',
+        'cpf' => 'CPF',
+        'rg' => 'RG',
+        // 'ufRg' => 'required',
+        // 'orgaoExpedidor' => 'required',
+        'sexo' => 'Sexo',
+        'telefone' => 'Telefone',
+        'telefoneAlternativo' => 'Celular',
+        'cep' => 'CEP',
+        'uf' => 'UF',
+        'cidade' => 'Cidade',
+        'rua' => 'Endereço',
+        'numero' => 'Número',
+        'complemento' => 'Complemento',
+        'emprego' => 'Emprego',
+        'dataNascimento' => 'Data de Nascimento',
+        'titulo' => 'Titulo',
+        'deficiencia' => 'Deficiência',
+        'deficienciaDescricao' => 'Descrição da Deficiência',
+        'fundamentacao' => 'Fundamentação do recurso',
+
+    ],
 
 ];

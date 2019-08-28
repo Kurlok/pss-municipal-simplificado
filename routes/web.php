@@ -18,12 +18,13 @@ Route::post('/inscricao', 'InscricaoController@store');
 Route::get('/exportar', 'ExportarController@index')->name('exportar')->middleware('auth');
 Route::get('/exportar/inscricoes', 'InscricaoController@exportarInscricoes')->name('exportarInscricoes')->middleware('auth');
 Route::get('/exportar/inscricoesTitulos', 'InscricaoController@exportarInscricoesTitulos')->name('exportarInscricoesTitulos')->middleware('auth');
+Route::get('/exportar/recursos', 'RecursoController@exportarRecurso')->name('exportarRecursos')->middleware('auth');
 
 Route::get('/consulta', 'InscricaoController@telaConsulta')->name('consulta');
 Route::post('/consulta/busca', 'InscricaoController@consultaInscricao')->name('consultaInscricao');
 
 Route::get('/recurso', 'RecursoController@index')->name('recurso');
-Route::post('/recurso/cadastrar', 'InscricaoController@store');
+Route::post('/recurso/cadastrar', 'RecursoController@store');
 
 
 Auth::routes

@@ -12,11 +12,11 @@
                                     {{ __('Exportar Inscrições') }}
                     </a>
                     <br/>
-                    {{--
-                    <a href="{{ route('exportarInscricoesTitulos') }}">
-                                    {{ __('Exportar Relação Inscrição/Títulos') }}
+                    
+                    <a href="{{ route('exportarRecursos') }}">
+                                    {{ __('Exportar Recursos') }}
                     </a>
-                    --}}
+                    
                 </div>
             </div>
         </div>

@@ -159,7 +159,7 @@ class InscricaoController extends Controller
 
     public function exportarInscricoes()
     {
-        return Excel::download(new InscricoesExport(), 'inscricoes.xlsx');
+        return Excel::download(new InscricoesExport(), 'Inscrições PSS nº 1-2019.xlsx');
     }
     public function exportarInscricoesTitulos()
     {

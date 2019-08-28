@@ -80,15 +80,17 @@
 
                 @if (isset($recursoMostra))
                 <p>Confirmação de envio de recurso no PSS nº 01/2019 da Prefeitura Municipal de Palmeira-PR:</p>
-                <p>Número da inscrição: {{$recursoMostra->id}}</p>
-                <p>Inscrição efetuada em: {{$dataTempoBR}}</p>
-                <p>Nome: {{$recursoMostra->nome}}</p>
+                <p>Número do recurso: {{$recursoMostra->id}}</p>
+                <p>Recurso enviado em: {{$dataTempoBR}}</p>
+                <p>Número da inscrição: {{$recursoMostra->idInscricao}}</p>
+                <p>Nome completo: {{$recursoMostra->nome}}</p>
                 <p>CPF: {{$recursoMostra->cpf}}</p>
                 <p>E-mail: {{$recursoMostra->email}}</p>
                 <p>RG: {{$recursoMostra->rg}}</p>
                 <p>Telefone: {{$recursoMostra->telefone}}</p>
                 <p>Celular: {{$recursoMostra->telefoneAlternativo}}</p>
                 <p>Emprego: {{$recursoMostra->emprego}} </p>
+                <p>Fundamentação: {{$recursoMostra->fundamentacao}} </p>
                 @endif
             </div>
         </div>
@@ -116,13 +118,13 @@
 
                     <p class="text-justify">Insira seu número de inscrição, RG e CPF.</p>
                     <span class="text-justify small">*</span> <span class="text-justify text-danger small">Campos Obrigatórios</span>
-                    <form method="POST" action="{{ route('consultaInscricao') }}" class="">
+                    <form method="POST" action="/recurso/cadastrar" id="recursoForm">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label for="id" class="col col-form-label">{{ __('Número da Inscrição:*') }}</label>
+                            <label for="id" class="col col-form-label">{{ __('Número da inscrição:*') }}</label>
 
                             <div class="col">
-                                <input id="idInscricao" type="text" name="idInscricao" class="form-control @error('idInscricao') is-invalid @enderror" maxlength="10" required>
+                                <input id="idInscricao" type="text" name="idInscricao" class="form-control @error('idInscricao') is-invalid @enderror" value="{{ old('idInscricao') }}" maxlength="10" required>
 
                                 @error('idInscricao')
                                 <span class="invalid-feedback" role="alert">
@@ -189,7 +191,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Telefone Alternativo:') }}</label>
+                            <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Celular*:') }}</label>
                             <div class="col">
                                 <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" autofocus>
                                 <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
@@ -216,12 +218,17 @@
                         <div class="form-group">
                             <label for="emprego" class="col col-form-label ">{{ __('Emprego ao qual concorre:* ') }}</label>
                             <div class="col">
-                                <select class="form-control @error('emprego') is-invalid @enderror" required id="emprego" name="emprego">
+                                <select required class="form-control @error('emprego') is-invalid @enderror @if(null !== old('emprego')) is-invalid @endif" id="emprego" name="emprego">
                                     <option disabled selected>Selecione o emprego</option>
                                     @foreach ($listaVagas as $vagas)
-                                    <option value="{{$vagas->id}}">{{$vagas->emprego}}</option>
+                                    <option value="{{$vagas->emprego}}">{{$vagas->emprego}}</option>
                                     @endforeach
                                 </select>
+                                @if(null !== old('emprego'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>O campo Emprego é obrigatório.</strong>
+                                </span>
+                                @endif
                                 @error('emprego')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -229,11 +236,16 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
-                        <div class="col">
-                            <label for="fundamentacao">Fundamentação do recurso</label>
-                                <textarea class="form-control" id="fundamentacao" rows="25">{{ old('fundamentacao') }}</textarea>
+                            <div class="col">
+                                <label for="fundamentacao">Fundamentação do recurso*:</label>
+                                <textarea class="form-control @error('fundamentacao') is-invalid @enderror" name="fundamentacao" id="fundamentacao" rows="25">{{old('fundamentacao')}}</textarea>
+                                @error('fundamentacao')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 
