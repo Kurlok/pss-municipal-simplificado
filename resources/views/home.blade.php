@@ -354,8 +354,11 @@
 
                 <div class="form-group">
                     <label for="numero" class="col col-form-label ">{{ __('Número:*') }}</label>
+
                     <div class="col">
                         <input id="numero" type="text" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('numero') }}" maxlength="10" required autocomplete="numero" autofocus>
+                        <small id="numeroHelp" class="form-text text-muted">Digite S/N caso sua residência não possua número.</small>
+
                         @error('numero')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
