@@ -116,30 +116,15 @@
 
                 <div class="card-body">
 
-                    <p class="text-justify">Insira seu número de inscrição, RG e CPF.</p>
+                    <p class="text-justify">Preencha o formulário abaixo para enviar seu recurso do Processo Seletivo Simplificado nº 01/2019 da Prefeitura Municipal de Palmeira:</p>
                     <span class="text-justify small">*</span> <span class="text-justify text-danger small">Campos Obrigatórios</span>
                     <form method="POST" action="/recurso/cadastrar" id="recursoForm">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label for="id" class="col col-form-label">{{ __('Número da inscrição:*') }}</label>
-
-                            <div class="col">
-                                <input id="idInscricao" type="text" name="idInscricao" class="form-control @error('idInscricao') is-invalid @enderror" value="{{ old('idInscricao') }}" maxlength="10" required>
-
-                                @error('idInscricao')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
                             <label for="nome" class="col col-form-label">{{ __('Nome completo:*') }}</label>
 
                             <div class="col">
-                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" maxlength="200" value="{{ old('nome') }}" required autocomplete="nome" >
+                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" maxlength="200" value="{{ old('nome') }}" required autocomplete="nome">
 
                                 @error('nome')
                                 <span class="invalid-feedback" role="alert">
@@ -148,72 +133,93 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-row">
 
-                        <div class="form-group">
-                            <label for="cpf" class="col col-form-label ">{{ __('CPF:*') }}</label>
+                            <div class="form-group col-md-6">
+                                <label for="id" class="col col-form-label">{{ __('Número da inscrição:*') }}</label>
 
-                            <div class="col">
-                                <input id="cpf" type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" placeholder="000.000.000-00" value="{{ old('cpf') }}" required autocomplete="cpf">
-                                <small id="cpfHelp" class="form-text text-muted">Digite apenas números.</small>
+                                <div class="col">
+                                    <input id="idInscricao" type="text" name="idInscricao" class="form-control @error('idInscricao') is-invalid @enderror" value="{{ old('idInscricao') }}" maxlength="10" required>
 
-                                @error('cpf')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                    @error('idInscricao')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="email" class="col col-form-label ">{{ __('E-mail:*') }}</label>
+                                <div class="col">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="rg" class="col col-form-label ">{{ __('RG:*') }}</label>
-                            <div class="col">
-                                <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="15" required>
-                                <small id="rgHelp" class="form-text text-muted">Digite apenas números.</small>
-                                @error('rg')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="cpf" class="col col-form-label ">{{ __('CPF:*') }}</label>
+
+                                <div class="col">
+                                    <input id="cpf" type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" placeholder="000.000.000-00" value="{{ old('cpf') }}" required autocomplete="cpf">
+                                    <small id="cpfHelp" class="form-text text-muted">Digite apenas números.</small>
+
+                                    @error('cpf')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="rg" class="col col-form-label ">{{ __('RG:*') }}</label>
+                                <div class="col">
+                                    <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="15" required>
+                                    <small id="rgHelp" class="form-text text-muted">Digite apenas números.</small>
+                                    @error('rg')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="telefone" class="col col-form-label ">{{ __('Telefone:*') }}</label>
+                                <div class="col">
+                                    <input id="telefone" type="text" class="form-control tel @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" placeholder="(00) 00000-0000" required autocomplete="telefone">
+                                    <small id="telefoneHelp" class="form-text text-muted">Digite apenas números.</small>
+                                    @error('telefone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Celular*:') }}</label>
+                                <div class="col">
+                                    <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo">
+                                    <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
+                                    @error('telefoneAlternativo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="telefone" class="col col-form-label ">{{ __('Telefone:*') }}</label>
-                            <div class="col">
-                                <input id="telefone" type="text" class="form-control tel @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" placeholder="(00) 00000-0000" required autocomplete="telefone">
-                                <small id="telefoneHelp" class="form-text text-muted">Digite apenas números.</small>
-                                @error('telefone')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Celular*:') }}</label>
-                            <div class="col">
-                                <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo">
-                                <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
-                                @error('telefoneAlternativo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" class="col col-form-label ">{{ __('E-mail:*') }}</label>
-                            <div class="col">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <label for="emprego" class="col col-form-label ">{{ __('Emprego ao qual concorre:* ') }}</label>
@@ -240,7 +246,7 @@
                         <div class="form-group">
                             <div class="col">
                                 <label for="fundamentacao">Fundamentação do recurso*:</label>
-                                <textarea class="form-control @error('fundamentacao') is-invalid @enderror" name="fundamentacao" id="fundamentacao" rows="25">{{old('fundamentacao')}}</textarea>
+                                <textarea class="form-control @error('fundamentacao') is-invalid @enderror" name="fundamentacao" id="fundamentacao" rows="15">{{old('fundamentacao')}}</textarea>
                                 @error('fundamentacao')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -143,11 +143,12 @@
 
                 <div class="card-body">
 
-                    <p class="text-justify">Insira os dados abaixo para consultar sua inscrição:</p>
+                    <p class="text-justify">Insira os dados abaixo para consultar sua inscrição no Processo Seletivo Simplificado nº 01/2019 da Prefeitura Municipal de Palmeira:</p>
                     <span class="text-justify small">*</span> <span class="text-justify text-danger small">Campos Obrigatórios</span>
                     <form method="POST" action="{{ route('consultaInscricao') }}" class="">
                         {{csrf_field()}}
-                        <div class="form-group">
+                        <div class="form-row">
+                        <div class="form-group col-md-6">
                             <label for="id" class="col col-form-label">{{ __('Número da Inscrição:*') }}</label>
 
                             <div class="col">
@@ -161,7 +162,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="dataNascimento" class="col col-form-label">{{ __('Data de Nascimento:*') }}</label>
 
                             <div class="col">
@@ -174,8 +175,10 @@
                                 @enderror
                             </div>
                         </div>
+</div>
+<div class="form-row">
 
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="cpf" class="col col-form-label ">{{ __('CPF:*') }}</label>
 
                             <div class="col">
@@ -190,7 +193,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="rg" class="col col-form-label ">{{ __('RG:*') }}</label>
                             <div class="col">
                                 <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="15" required>
@@ -202,7 +205,7 @@
                                 @enderror
                             </div>
                         </div>
-
+</div>
                         <div id="recaptcha" class="form-group row justify-content-center">
 
                             {!! Recaptcha::render() !!}
