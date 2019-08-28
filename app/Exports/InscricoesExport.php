@@ -185,13 +185,66 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
 
     public function array(): array
     {
+        
+        // $arrayFinal = array();
+        // $listaInscricao = Inscricao::all();
+        // foreach ($listaInscricao as $inscricao) {
+        //     $array = array();
+        //     array_push($array, $inscricao->id);
+        //     array_push($array, $inscricao->created_at);
+        //     array_push($array, $inscricao->nome);
+        //     array_push($array, $inscricao->dataNascimento);
+        //     array_push($array, $inscricao->cpf);
+        //     array_push($array, $inscricao->rg);
+        //     // array_push($array, $inscricao->ufRg);
+        //     // array_push($array, $inscricao->orgaoExpedidor);
+        //     array_push($array, $inscricao->sexo);
+        //     array_push($array, $inscricao->email);
+        //     array_push($array, $inscricao->telefone);
+        //     array_push($array, $inscricao->telefoneAlternativo);
+        //     array_push($array, $inscricao->cep);
+        //     array_push($array, $inscricao->uf);
+        //     array_push($array, $inscricao->cidade);
+        //     array_push($array, $inscricao->bairro);
+        //     array_push($array, $inscricao->rua);
+        //     array_push($array, $inscricao->numero);
+        //     array_push($array, $inscricao->complemento);
+        //     array_push($array, $inscricao->deficiencia);
+        //     array_push($array, $inscricao->deficienciaDescricao);
+
+        //     $empregoBusca = Vaga::find($inscricao->fk_vagas_id);
+        //     $empregoNome = $empregoBusca->emprego;
+        //     array_push($array, $empregoNome);
+        //     $somaPontos = 0;
+        //     $i = 1;
+
+        //     foreach ($inscricao->titulos as $tit) {
+        //         array_push($array, $tit->titulo);
+        //         array_push($array, $tit->pontos);
+        //         $somaPontos = $somaPontos + $tit->pontos;
+        //         $i = $i + 1;
+        //     }
+
+        //     while ($i <= 5) {
+        //         array_push($array, "");
+        //         array_push($array, "");
+        //         $i++;
+        //     }
+        //     array_push($array, $somaPontos);
+        //     array_push($arrayFinal, $array);
+        // }
+
+        // return [
+        //     $arrayFinal
+        // ];
+
         $arrayFinal = array();
         $listaInscricao = Inscricao::all();
         foreach ($listaInscricao as $inscricao) {
             $array = array();
             array_push($array, $inscricao->id);
             array_push($array, $inscricao->created_at);
-            array_push($array, $inscricao->nome);
+            array_push($array, strtoupper($inscricao->nome));
             array_push($array, $inscricao->dataNascimento);
             array_push($array, $inscricao->cpf);
             array_push($array, $inscricao->rg);
@@ -203,13 +256,13 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             array_push($array, $inscricao->telefoneAlternativo);
             array_push($array, $inscricao->cep);
             array_push($array, $inscricao->uf);
-            array_push($array, $inscricao->cidade);
-            array_push($array, $inscricao->bairro);
-            array_push($array, $inscricao->rua);
-            array_push($array, $inscricao->numero);
-            array_push($array, $inscricao->complemento);
+            array_push($array, strtoupper($inscricao->cidade));
+            array_push($array, strtoupper($inscricao->bairro));
+            array_push($array, strtoupper($inscricao->rua));
+            array_push($array, strtoupper($inscricao->numero));
+            array_push($array, strtoupper($inscricao->complemento));
             array_push($array, $inscricao->deficiencia);
-            array_push($array, $inscricao->deficienciaDescricao);
+            array_push($array, strtoupper($inscricao->deficienciaDescricao));
 
             $empregoBusca = Vaga::find($inscricao->fk_vagas_id);
             $empregoNome = $empregoBusca->emprego;
@@ -236,6 +289,7 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
         return [
             $arrayFinal
         ];
+        
     }
 
 
