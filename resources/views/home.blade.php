@@ -71,7 +71,7 @@
     <!--Mensagem de sucesso na inscrição-->
     @if(session()->has('mensagemSucessoInscricao'))
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class=" alert alert-success">
                 {{ session()->get('mensagemSucessoInscricao') }}
             </div>
@@ -80,7 +80,7 @@
     @endif
     @if ($errors->any())
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class=" alert alert-danger">
                 Houve um erro na sua inscrição, por favor confira se preencheu todos os dados e se selecionou pelo menos um título para o cargo desejado.
             </div>
@@ -93,7 +93,7 @@
 <div class="container">
 
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class="card">
                 <div class="card-header bg-primary text-white">Inscrição</div>
 

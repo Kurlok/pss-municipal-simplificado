@@ -70,7 +70,7 @@
     <!--Mensagem de sucesso no recurso-->
     @if(session()->has('recurso'))
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class=" alert alert-success">
                 <?php
                 $recursoMostra = session('recurso');
@@ -99,7 +99,7 @@
 
     @if ($errors->any())
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class=" alert alert-danger">
                 Houve um erro no envio de seu recurso, por favor confira se preencheu todos os dados corretamente.
             </div>
@@ -110,7 +110,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class="card">
                 <div class="card-header bg-primary text-white">Recurso</div>
 

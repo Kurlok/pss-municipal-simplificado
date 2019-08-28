@@ -70,7 +70,7 @@
     <!--Mensagem de sucesso na inscrição-->
     @if(session()->has('inscricao'))
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class=" alert alert-success">
                 <?php
                 $inscricaoMostra = session('inscricao');
@@ -115,7 +115,7 @@
     @endif
     @if (session()->has('mensagemErroConsulta'))
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class=" alert alert-danger">
                 {{session()->get('mensagemErroConsulta')}}
 
@@ -125,7 +125,7 @@
     @endif
     @if ($errors->any())
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class=" alert alert-danger">
                 Houve um erro na sua consulta, por favor confira se preencheu todos os dados corretamente.
             </div>
@@ -137,7 +137,7 @@
 <div class="container">
 
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class="card">
                 <div class="card-header bg-primary text-white">Consulta</div>
 
