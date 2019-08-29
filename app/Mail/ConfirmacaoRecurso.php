@@ -22,9 +22,9 @@ class ConfirmacaoRecurso extends Mailable implements ShouldQueue
         $this->recurso = $recurso;
 
         return $this->from('pss@palmeira.pr.gov.br')
-        ->subject('Confirmação de envio de recurso - PSS nº 01/2019 - Prefeitura Municipal de Palmeira-PR')
-        ->view('confirmacaoRecurso');  
-      }
+            ->subject('Confirmação de envio de recurso - PSS nº 01/2019 - Prefeitura Municipal de Palmeira-PR')
+            ->view('confirmacaoRecurso');
+    }
 
 
     /**
@@ -34,6 +34,9 @@ class ConfirmacaoRecurso extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('confirmacaoREcurso')
+            ->with([
+                'recurso' => $this->recurso,
+            ]);
     }
 }
