@@ -244,7 +244,7 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             $array = array();
             array_push($array, $inscricao->id);
             array_push($array, $inscricao->created_at);
-            array_push($array, strtoupper($inscricao->nome));
+            array_push($array, mb_strtoupper($inscricao->nome, 'UTF-8'));
             array_push($array, $inscricao->dataNascimento);
             array_push($array, $inscricao->cpf);
             array_push($array, $inscricao->rg);
@@ -256,13 +256,13 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             array_push($array, $inscricao->telefoneAlternativo);
             array_push($array, $inscricao->cep);
             array_push($array, $inscricao->uf);
-            array_push($array, strtoupper($inscricao->cidade));
-            array_push($array, strtoupper($inscricao->bairro));
-            array_push($array, strtoupper($inscricao->rua));
-            array_push($array, strtoupper($inscricao->numero));
-            array_push($array, strtoupper($inscricao->complemento));
+            array_push($array, mb_strtoupper($inscricao->cidade, 'UTF-8'));
+            array_push($array, mb_strtoupper($inscricao->bairro, 'UTF-8'));
+            array_push($array, mb_strtoupper($inscricao->rua, 'UTF-8'));
+            array_push($array, mb_strtoupper($inscricao->numero, 'UTF-8'));
+            array_push($array, mb_strtoupper($inscricao->complemento, 'UTF-8'));
             array_push($array, $inscricao->deficiencia);
-            array_push($array, strtoupper($inscricao->deficienciaDescricao));
+            array_push($array, strtoupper($inscricao->deficienciaDescricao, 'UTF-8'));
 
             $empregoBusca = Vaga::find($inscricao->fk_vagas_id);
             $empregoNome = $empregoBusca->emprego;
