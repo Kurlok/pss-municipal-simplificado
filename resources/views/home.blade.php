@@ -108,7 +108,7 @@
                             <label for="nome" class="col col-form-label">{{ __('Nome completo:*') }}</label>
 
                             <div class="col">
-                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror @if(session()->has('erroTamanhoNome')) is-invalid @endif" name="nome" maxlength="200" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
+                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror @if(session()->has('erroTamanhoNome')) is-invalid @endif" name="nome" maxlength="200" value="{{ old('nome') }}" required autocomplete="nome" >
 
                                 @error('nome')
                                 <span class="invalid-feedback" role="alert">
@@ -126,7 +126,7 @@
                                 <label for="cpf" class="col col-form-label ">{{ __('CPF:*') }}</label>
 
                                 <div class="col">
-                                    <input id="cpf" type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" placeholder="000.000.000-00" value="{{ old('cpf') }}" required autocomplete="cpf" autofocus>
+                                    <input id="cpf" type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" placeholder="000.000.000-00" value="{{ old('cpf') }}" required autocomplete="cpf" >
                                     <small id="cpfHelp" class="form-text text-muted">Digite apenas números.</small>
 
                                     @error('cpf')
@@ -139,7 +139,7 @@
                             <div class="form-group col-md-6">
                                 <label for="rg" class="col col-form-label ">{{ __('RG:*') }}</label>
                                 <div class="col">
-                                    <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="15" required autofocus>
+                                    <input id="rg" type="text" class="form-control @error('rg') is-invalid @enderror" name="rg" value="{{ old('rg') }}" maxlength="15" required >
                                     <small id="rgHelp" class="form-text text-muted">Digite apenas números.</small>
                                     @error('rg')
                                     <span class="invalid-feedback" role="alert">
@@ -155,7 +155,7 @@
                                 <label for="dataNascimento" class="col col-form-label">{{ __('Data de Nascimento:*') }}</label>
 
                                 <div class="col">
-                                    <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" value="{{ old('dataNascimento') }}" min="1944-09-01" max="2004-01-01" required autofocus>
+                                    <input id="dataNascimento" type="date" class="form-control @error('dataNascimento') is-invalid @enderror" name="dataNascimento" value="{{ old('dataNascimento') }}" min="1944-09-01" max="2004-01-01" required >
                                     <small id="dataNascimentoHelp" class="form-text text-muted">A data de nascimento deve ser posterior à 01/09/1944.</small>
 
                                     @error('dataNascimento')
@@ -211,7 +211,7 @@
                         <div class="form-group">
                             <label for="orgaoExpedidor" class="col col-form-label ">{{ __('RG - Órgão Expedidor:*') }}</label>
                             <div class="col">
-                                <input id="orgaoExpedidor" type="text" class="form-control @error('orgaoExpedidor') is-invalid @enderror" name="orgaoExpedidor" value="{{ old('orgaoExpedidor') }}" maxlength="100" required autocomplete="orgaoExpedidor" autofocus>
+                                <input id="orgaoExpedidor" type="text" class="form-control @error('orgaoExpedidor') is-invalid @enderror" name="orgaoExpedidor" value="{{ old('orgaoExpedidor') }}" maxlength="100" required autocomplete="orgaoExpedidor" >
                                 @error('orgaoExpedidor')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -248,7 +248,7 @@
                     <div class="form-group col-md-6">
                         <label for="telefone" class="col col-form-label ">{{ __('Telefone:*') }}</label>
                         <div class="col">
-                            <input id="telefone" type="text" class="form-control tel @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" placeholder="(00) 00000-0000" required autocomplete="telefone" autofocus>
+                            <input id="telefone" type="text" class="form-control tel @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" maxlength="20" placeholder="(00) 00000-0000" required autocomplete="telefone" >
                             <small id="telefoneHelp" class="form-text text-muted">Digite apenas números.</small>
                             @error('telefone')
                             <span class="invalid-feedback" role="alert">
@@ -261,7 +261,7 @@
                     <div class="form-group col-md-6">
                         <label for="telefoneAlternativo" class="col col-form-label ">{{ __('Celular*:') }}</label>
                         <div class="col">
-                            <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" required autofocus>
+                            <input id="telefoneAlternativo" type="text" class="form-control tel @error('telefoneAlternativo') is-invalid @enderror" name="telefoneAlternativo" value="{{ old('telefoneAlternativo') }}" placeholder="(00) 00000-0000" maxlength="20" autocomplete="telefoneAlternativo" required >
                             <small id="telefoneAlternativoHelp" class="form-text text-muted">Digite apenas números.</small>
                             @error('telefoneAlternativo')
                             <span class="invalid-feedback" role="alert">
@@ -316,7 +316,7 @@
                     <div class="form-group col-md-6">
                         <label for="cep" class="col col-form-label ">{{ __('CEP:*') }}</label>
                         <div class="col">
-                            <input id="cep" type="text" class="form-control @error('cep') is-invalid @enderror" name="cep" value="{{ old('cep') }}" placeholder="00000-000" required autocomplete="cep" autofocus>
+                            <input id="cep" type="text" class="form-control @error('cep') is-invalid @enderror" name="cep" value="{{ old('cep') }}" placeholder="00000-000" required autocomplete="cep" >
                             <small id="cepHelp" class="form-text text-muted">Digite apenas números.</small>
                             @error('cep')
                             <span class="invalid-feedback" role="alert">
@@ -333,7 +333,7 @@
                     <div class="form-group col-md-6">
                         <label for="cidade" class="col col-form-label ">{{ __('Cidade:*') }}</label>
                         <div class="col">
-                            <input id="cidade" type="text" class="form-control @error('cidade') is-invalid @enderror" name="cidade" value="{{ old('cidade') }}" maxlength="100" required autocomplete="cidade" autofocus>
+                            <input id="cidade" type="text" class="form-control @error('cidade') is-invalid @enderror" name="cidade" value="{{ old('cidade') }}" maxlength="100" required autocomplete="cidade" >
                             @error('cidade')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -345,7 +345,7 @@
                     <div class="form-group col-md-6">
                         <label for="bairro" class="col col-form-label ">{{ __('Bairro:*') }}</label>
                         <div class="col">
-                            <input id="bairro" type="text" class="form-control @error('bairro') is-invalid @enderror" name="bairro" value="{{ old('bairro') }}" maxlength="100" required autocomplete="bairro" autofocus>
+                            <input id="bairro" type="text" class="form-control @error('bairro') is-invalid @enderror" name="bairro" value="{{ old('bairro') }}" maxlength="100" required autocomplete="bairro" >
                             @error('bairro')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -359,7 +359,7 @@
                     <div class="form-group col-md-6">
                         <label for="rua" class="col col-form-label ">{{ __('Endereço:*') }}</label>
                         <div class="col">
-                            <input id="rua" type="text" class="form-control @error('rua') is-invalid @enderror" name="rua" value="{{ old('rua') }}" maxlength="100" required autocomplete="rua" autofocus>
+                            <input id="rua" type="text" class="form-control @error('rua') is-invalid @enderror" name="rua" value="{{ old('rua') }}" maxlength="100" required autocomplete="rua" >
                             @error('rua')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -372,7 +372,7 @@
                         <label for="numero" class="col col-form-label ">{{ __('Número:*') }}</label>
 
                         <div class="col">
-                            <input id="numero" type="text" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('numero') }}" maxlength="10" required autocomplete="numero" autofocus>
+                            <input id="numero" type="text" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('numero') }}" maxlength="10" required autocomplete="numero" >
                             <small id="numeroHelp" class="form-text text-muted">Digite S/N caso sua residência não possua número.</small>
 
                             @error('numero')
@@ -389,7 +389,7 @@
                     <div class="form-group col-md-6">
                         <label for="complemento" class="col col-form-label ">{{ __('Complemento:') }}</label>
                         <div class="col">
-                            <input id="complemento" type="text" class="form-control @error('complemento') is-invalid @enderror" name="complemento" value="{{ old('complemento') }}" maxlength="100" autocomplete="complemento" autofocus>
+                            <input id="complemento" type="text" class="form-control @error('complemento') is-invalid @enderror" name="complemento" value="{{ old('complemento') }}" maxlength="100" autocomplete="complemento" >
                             @error('complemento')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

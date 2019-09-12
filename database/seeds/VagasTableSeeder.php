@@ -476,7 +476,7 @@ class VagasTableSeeder extends Seeder
         );
         DB::table('vagas')->insert(
             [
-                'emprego' => 'Motorista II',
+                'emprego' => 'Motorista',
                 'pss' => '1/2019 - Saúde',
                 'formacao' => 'Ensino Médio e carteira nacional de habilitação D',
                 'cargaHoraria' => '40h semanais',

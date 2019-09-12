@@ -103,7 +103,7 @@ class TitulosTableSeeder extends Seeder
             'fk_vagas_id' => '39'
         ]);
         DB::table('titulos')->insert([
-            'titulo' => 'Graduação em Odontologia',
+            'titulo' => 'Curso Superior em Odontologia',
             'pontos' => '20',
             'fk_vagas_id' => '39'
         ]);
@@ -130,7 +130,7 @@ class TitulosTableSeeder extends Seeder
             'fk_vagas_id' => '40'
         ]);
         DB::table('titulos')->insert([
-            'titulo' => 'Graduação em Odontologia',
+            'titulo' => 'Curso Superior em Odontologia',
             'pontos' => '20',
             'fk_vagas_id' => '40'
         ]);
@@ -157,7 +157,7 @@ class TitulosTableSeeder extends Seeder
             'fk_vagas_id' => '41'
         ]);
         DB::table('titulos')->insert([
-            'titulo' => 'Graduação em Enfermagem',
+            'titulo' => 'Curso Superior em Enfermagem',
             'pontos' => '15',
             'fk_vagas_id' => '41'
         ]);
@@ -184,7 +184,7 @@ class TitulosTableSeeder extends Seeder
             'fk_vagas_id' => '42'
         ]);
         DB::table('titulos')->insert([
-            'titulo' => 'Graduação em Enfermagem',
+            'titulo' => 'Curso Superior em Enfermagem',
             'pontos' => '15',
             'fk_vagas_id' => '42'
         ]);
@@ -211,7 +211,7 @@ class TitulosTableSeeder extends Seeder
             'fk_vagas_id' => '43'
         ]);
         DB::table('titulos')->insert([
-            'titulo' => 'Curso superior em Farmácia',
+            'titulo' => 'Curso Superior em Farmácia',
             'pontos' => '15',
             'fk_vagas_id' => '43'
         ]);
@@ -265,23 +265,24 @@ class TitulosTableSeeder extends Seeder
             'fk_vagas_id' => '45'
         ]);
         DB::table('titulos')->insert([
+            'titulo' => 'Curso Superior em Medicina',
+            'pontos' => '10',
+            'fk_vagas_id' => '45'
+        ]);
+        DB::table('titulos')->insert([
             'titulo' => 'Curso em Gestão Pública',
-            'pontos' => '15',
+            'pontos' => '20',
             'fk_vagas_id' => '45'
         ]);
         DB::table('titulos')->insert([
             'titulo' => 'Curso ACLS – Suporte Avançado de Vida em Cardiologia – carga horária mínimo 16hs',
-            'pontos' => '25',
+            'pontos' => '30',
             'fk_vagas_id' => '45'
         ]);
-        DB::table('titulos')->insert([
-            'titulo' => 'Pós-graduação em Saúde da Família',
-            'pontos' => '25',
-            'fk_vagas_id' => '45'
-        ]);
+  
         DB::table('titulos')->insert([
             'titulo' => 'Pós-graduação em Saúde da Mulher, da Criança e do Adolescente',
-            'pontos' => '25',
+            'pontos' => '30',
             'fk_vagas_id' => '45'
         ]);
 
@@ -292,23 +293,23 @@ class TitulosTableSeeder extends Seeder
             'fk_vagas_id' => '46'
         ]);
         DB::table('titulos')->insert([
+            'titulo' => 'Curso Superior em Medicina',
+            'pontos' => '10',
+            'fk_vagas_id' => '46'
+        ]);
+        DB::table('titulos')->insert([
             'titulo' => 'Curso em Gestão Pública',
-            'pontos' => '15',
+            'pontos' => '20',
             'fk_vagas_id' => '46'
         ]);
         DB::table('titulos')->insert([
             'titulo' => 'Curso ACLS – Suporte Avançado de Vida em Cardiologia – carga horária mínimo 16hs',
-            'pontos' => '25',
+            'pontos' => '30',
             'fk_vagas_id' => '46'
         ]);
         DB::table('titulos')->insert([
-            'titulo' => 'Pós-graduação em medicina',
-            'pontos' => '25',
-            'fk_vagas_id' => '46'
-        ]);
-        DB::table('titulos')->insert([
-            'titulo' => 'Pós-graduação em Saúde da Mulher, da Criança e do Adolescente',
-            'pontos' => '25',
+            'titulo' => 'Pós-graduação na Área de Medicina',
+            'pontos' => '30',
             'fk_vagas_id' => '46'
         ]);
 

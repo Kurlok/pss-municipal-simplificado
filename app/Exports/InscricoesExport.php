@@ -262,7 +262,7 @@ class InscricoesExport implements WithHeadings, ShouldAutoSize, WithColumnFormat
             array_push($array, mb_strtoupper($inscricao->numero, 'UTF-8'));
             array_push($array, mb_strtoupper($inscricao->complemento, 'UTF-8'));
             array_push($array, $inscricao->deficiencia);
-            array_push($array, strtoupper($inscricao->deficienciaDescricao, 'UTF-8'));
+            array_push($array, mb_strtoupper($inscricao->deficienciaDescricao, 'UTF-8'));
 
             $empregoBusca = Vaga::find($inscricao->fk_vagas_id);
             $empregoNome = $empregoBusca->emprego;

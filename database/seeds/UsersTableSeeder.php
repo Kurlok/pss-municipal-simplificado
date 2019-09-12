@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,8 +14,8 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Administrador',
-            'email' => 'pss@palmeira.pr.gov.br',
-            'password' => '$2y$10$F1sN1I/7vJ.vYS4k/1GfK.FS9dgSkwTrtzB0aSrCqPuP1l.TZe26S',
+            'email' => 'comissao.pss.1.2019@palmeira.pr.gov.br',
+            'password' => Hash::make('novaONDAplanet@66'),
         ]);
     }
 }

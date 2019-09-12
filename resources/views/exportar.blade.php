@@ -12,11 +12,11 @@
                                     {{ __('Exportar Inscrições') }}
                     </a>
                     <br/>
-                    
+                    @if (Route::has('exportarRecursos'))
                     <a href="{{ route('exportarRecursos') }}">
                                     {{ __('Exportar Recursos') }}
                     </a>
-                    
+                    @endif
                 </div>
             </div>
         </div>
